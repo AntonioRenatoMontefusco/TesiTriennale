@@ -1,5 +1,7 @@
 \documentclass[12pt, openany]{book}
 \usepackage[italian]{babel}
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
 \begin{document}
 	\chapter*{Intruduzione}	
 		Il CoronaVirus-19, abbreviato CoViD-19, è un virus trovato per la prima volta a Wuhan, in Cina. Esso è conosciuto anche come \emph{Malattia respiratoria acuta}, abbreviato in \textbf{SARS-CoV-2}, dato che è un virus che come principale metodo di trasmissione utilizza le vie aeree ha avuto vita facile nel diffondersi velocemente, in effetti tutti respiriamo. In breve tempo si è passati dall'isolamento della Cina al doverlo definire \textbf{pandemia} e quindi passare ad un isolamento globale.
@@ -14,6 +16,7 @@
 			\item Infetto, indicato in giallo
 			
 		\end{itemize} 
+	\myworries{Inserire immagine agenti}\\
 		I dati sul numero di pendolari della tratta sono stati presi da un articolo riguardante uno studio pre-pandemia sui viaggiatori della cittadina giapponese di Obuse, della quale è stato preso il percorso della tratta del bus. La simulazione permette di selezionare la percentuale di contagiati iniziale e la percentuale di infezione del virus in modo tale da effettuare facilmente diversi test. Il numero di persone alle fermate è selezionabile per ogni singola fermata in modo tale da poter essere utilizzate in diversi percorsi o più semplicemente applicarlo alle stime dei pendolari attuali.\\
 		All'avvio della simulazione viene generato un file .csv che verrà riempito per ogni tratta del bus con le informazioni generate sugli agenti, come il numero i agenti totali, quelli contagiosi, quelli infetti e quelli sani.
 		\\
@@ -45,6 +48,26 @@
 			\item \emph{Simulazione ad eventi discreti}, il sistema è rappresentato, nella sua evoluzione nel tempo, con variabili che cambiano istantaneamente il loro valore in ben definiti istanti di tempo appartenenti ad un insieme numerabili, questi istanti sono definiti eventi.
 			\item \emph{Simulazione ibrida}: sono modelli che combinano due o più tecniche di modellazione citate precedentemente.
 		\end{itemize}
-	Dato che i metodi di modellazione descritti sopra, quando le simulazioni diventano complesse, vengono integrate con simulazioni distribuite per velocizzare o per collegare più simulazioni formandone una su larga scala.
+	Dato che le simulazioni sviluppate con i metodi descritti in precedenza possono diventare molto complesse e richiedere tempo per l'esecuzione sono state sviluppate le simulazioni distribuite, le quali permettono di collegare più simulazioni in una singola in scala maggiore permettendo una velocità maggiore.\\ 
+	Di seguito il presente paper introduce le tipologie di decisioni che sono state prese grazie all'utilizzo di simulazioni durante la pandemia da CoViD-19; esse vengono divise in tre sezioni:
+	\begin{itemize}
+		\item \emph{Decisioni che hanno avuto effetto sulla diffusione del virus.}
+		\item \emph{Decisioni che riguardano la gestione delle risorse.}
+		\item \emph{Decisioni sulla salute della popolazione.}
+	\end{itemize}
+	\myworries{Inserire immagini decisioni}\\
+	Ora andiamo più nel dettaglio nelle decisioni per evitare la diffusione del virus descritte nel presente paper.\\
+	Come prima decisione possibile abbiamo quella della \emph{quarantena}, questo per evitare del tutto la diffusione del virus. Questa decisione è d'obbligo una volta individuato un caso di corona virus, questo fino alla sua completa guarigione in modo tale da non poter contagiare nessuno. L'articolo cita un articolo del 2016 intitolato "The Ebola crisis and the corresponding public behavior: A system dynamics approach" il quale dimostra di come la messa in quarantena dei casi di ebola ha avuto un impatto importante su combattere la malattia; questo però non è applicabile così facilmente alla pandemia da corona virus dato che i sintomi dell'ebola sono ben visibili sulla pelle dei malcapitati, a differenza di quelli da CoViD-19 che possono anche essere lievi o assenti.\\
+	Una seconda decisione che ha avuto un grande impatto sul nostro stile di vita, ma allo stesso è stato di grande aiuto per combattere la diffusione del virus sono le misure di \emph{distanziamento sociale}. Per distanziamento sociale si intendono quei comportamenti nel quale riduciamo, in parte ,il contatto umano in modo tale da essere sicuri di essere contagiati o di contagiare e quindi puntare a ridurre la crescita della curva dei contagi. Esempi di distanziamento sociale possono essere: \begin{itemize}
+		\item mantenere una distanza di sicurezza di circa due metri in modo tale da non far arrivare gocce di saliva alla persona con cui stiamo colloquiando
+		\item lavorare da casa quando è possibile, infatti molte aziende sono passate allo smart-working, in modo tale da continuare a lavorare tranquillamente anche da casa.
+		\item Cancellare eventi i quali prevedono un elevato numero di persone.
+		\item chiudere le scuole e optare per le lezioni in remoto.
+		\item evitare di incontrare fisicamente amici e parenti.
+	\end{itemize}
+	Un decisione molto più drastica delle due precedenti è il lock-down imposto dal governo in modo tale da costringere la popolazione al distanziamento sociale e a lasciare le abitazioni sono in caso di prima necessità, come andare a fare la spesa, andare a lavorare ed uscire per motivi di salute. Per ovviare a problemi legati all'economia ogni governo può includere una soglia di valori sul quando rilassare le restrizioni in modo tale da permettere ai lavoratori che non eseguono un lavoro considerato di "Prima necessità" di lavorare facendo girare l'economia.\\
+	In conclusione il documento lascia un appello definendolo "The call to arms" invitando a sviluppare simulazioni in merito alla diffusione e ai comportamenti per combattere la diffusione del virus in modo tale da supportare la ricerca, per poi fare l'esempio dei "codebreakers" britannici insieme ad Alan Turing, durante la Seconda Guerra Mondiale, decriptarono Enigma mostrando che l'unione di un buon team risolve problemi difficili.\\
+	Lo sviluppo delle simulazioni si è dimostrato essere molto efficace, basti pensare al fatto che questo paper è stato redatto il 27 Marzo 2020 e seguendo le decisioni suggerite dalle simulazioni stiamo pian piano tornando alla normalità.\\
+	
 		
 \end{document}
