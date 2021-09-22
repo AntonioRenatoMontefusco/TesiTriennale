@@ -1,6 +1,8 @@
 \documentclass[12pt, openany]{book}
 \usepackage[italian]{babel}
 \usepackage{xcolor}
+\usepackage{float}
+\usepackage{graphicx}
 \newcommand\myworries[1]{\textcolor{red}{#1}}
 \begin{document}
 	\chapter*{Intruduzione}	
@@ -16,8 +18,16 @@
 			\item Infetto, indicato in giallo
 			
 		\end{itemize} 
-	\myworries{Inserire immagine agenti}\\
-		I dati sul numero di pendolari della tratta sono stati presi da un articolo riguardante uno studio pre-pandemia sui viaggiatori della cittadina giapponese di Obuse, della quale è stato preso il percorso della tratta del bus. La simulazione permette di selezionare la percentuale di contagiati iniziale e la percentuale di infezione del virus in modo tale da effettuare facilmente diversi test. Il numero di persone alle fermate è selezionabile per ogni singola fermata in modo tale da poter essere utilizzate in diversi percorsi o più semplicemente applicarlo alle stime dei pendolari attuali.\\
+		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/Agenti"}
+		\caption{Stati degli agenti}
+		\label{fig:agenti}
+	\end{figure}
+
+		come è visibile nella Figura \ref{fig:agenti}\\
+		I dati sul numero di pendolari della tratta sono stati presi da un articolo riguardante uno studio pre-pandemia sui viaggiatori della cittadina giapponese di Obuse\cite{Obuse}, della quale è stato preso il percorso della tratta del bus. La simulazione permette di selezionare la percentuale di contagiati iniziale e la percentuale di infezione del virus in modo tale da effettuare facilmente diversi test. Il numero di persone alle fermate è selezionabile per ogni singola fermata in modo tale da poter essere utilizzate in diversi percorsi o più semplicemente applicarlo alle stime dei pendolari attuali.\\
 		All'avvio della simulazione viene generato un file .csv che verrà riempito per ogni tratta del bus con le informazioni generate sugli agenti, come il numero i agenti totali, quelli contagiosi, quelli infetti e quelli sani.
 		\\
 		La tesi sarà suddivisa nelle seguenti sezioni:
@@ -30,15 +40,22 @@
 		\end{itemize}
 	\chapter{Stato dell'arte}
 		Dalla scoperta del salto di specie effettuato dal CoViD-19 sull'essere umano ad oggi ci sono stati innumerevoli studi, ricerche su vari aspetti della malattia, sul suo impatto sulla società in ambito politico,sociale ed economico. Ci sono anche varie simulazioni sulla sua diffusione in varie situazioni come trasporti pubblici, uffici, ospedali, locali pubblici. \\
-		Come primo articolo si parlerà di "Simulaion-based Estimation of the Spread of COVID-19 in Iran" pubblicato il 27 Marzo 2020 su medRxiv. Come primo luogo l'articolo mette in luce i problemi dovuti ai dati provenienti dai vari paesi colpiti dal virus, definendoli altamente inaffidabili perché non tengono conto che i sintomi lievi del CoViD-19 sono assimilabili al raffreddore stagionale o alla comune influenza, in più molti testi vengono effettuati tramite screening limitati, un metodo per effettuare esami a tappeto allo scopo di individuare una malattia. Tutti questi dati non vengono combinati con le statistiche ufficiali sulla diffusione del virus e si va quindi a sottovalutare la quantità di infetti.
+		Come primo articolo si parlerà di "Simulaion-based Estimation of the Spread of COVID-19 in Iran"\cite{Iran} pubblicato il 27 Marzo 2020 su medRxiv. Come primo luogo l'articolo mette in luce i problemi dovuti ai dati provenienti dai vari paesi colpiti dal virus, definendoli altamente inaffidabili perché non tengono conto che i sintomi lievi del CoViD-19 sono assimilabili al raffreddore stagionale o alla comune influenza, in più molti testi vengono effettuati tramite screening limitati, un metodo per effettuare esami a tappeto allo scopo di individuare una malattia. Tutti questi dati non vengono combinati con le statistiche ufficiali sulla diffusione del virus e si va quindi a sottovalutare la quantità di infetti.
 		Lo studio è stato effettuato sulla diffusione del virus in Iran nei primi mesi del 2020.\\
-		È stato sviluppato un modello dinamico per fornire un quadro affidabile dello stato della malattia basandosi sui dati esistenti. Il modello si basa sul framework \textbf{SEIR}(Suscettibile, Esposto, Infetto, Ricoverato); i modelli matematici, in epidemiologia, sono modelli simbolici costituiti da una o più equazioni che considerano diversi parametri per prevedere l'andamento di una malattia in diverse condizioni ambientali o per calcolare il rischio di morte o l'aspettativa di vita nel corso di una pandemia di specifiche entità. SEIR è uno di questi modelli matematici, esso considera il periodo di incubazione durante il quale un individuo è infetto ma non contagioso, in questo caso si trova nello stato di \emph{"Esposto"}, questo è il principale motivo per cui è stato scelto questo modello, tenendo conto il periodo di incubazione del CoVid-19 che ha un massimo di 14 giorni.\\
+		È stato sviluppato un modello dinamico per fornire un quadro affidabile dello stato della malattia basandosi sui dati esistenti. Il modello si basa sul framework \textbf{SEIR}(Suscettibile, Esposto, Infetto, Ricoverato); 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/SEIR"}
+			\caption{Questo è la rappresentazione di un modello SEIR }
+			\label{fig:SEIR}
+		\end{figure}
+		I modelli matematici, in epidemiologia, sono modelli simbolici costituiti da una o più equazioni che considerano diversi parametri per prevedere l'andamento di una malattia in diverse condizioni ambientali o per calcolare il rischio di morte o l'aspettativa di vita nel corso di una pandemia di specifiche entità. SEIR è uno di questi modelli matematici, esso considera il periodo di incubazione durante il quale un individuo è infetto ma non contagioso, in questo caso si trova nello stato di \emph{"Esposto"}, questo è il principale motivo per cui è stato scelto questo modello, tenendo conto il periodo di incubazione del CoVid-19 che ha un massimo di 14 giorni.\\
 		Come primo parametro è stato registrata la frequenza di contatti medi tra persone man mano che venivano segnalati i decessi, poi sono stati differenziati i casi segnalati dai casi effettivi e di come questa differenza cambia con l'andare dell'epidemia(all'epoca ancora definibile epidemia). Nel modello sono stati utilizzati sia dati ufficiali che dati stimati dalla comunità medica in modo tale da ricostruire un quadro più completo della situazione epidemica. Questi dati vengono raccolti per poi passare ad un simulazione con metodo \emph{Monte Carlo}; è una classe di metodi computazionali basati sul campionamento casuale per ottenere risultati numerici, questo metodo è utilizzato per trarre stime attraverso simulazioni.
 		Da quest'analisi sono state trovate sei possibili situazioni della diffusione della malattia in relazione ad effetti stagionali e misure di distanziamento sociale.\\
 		I risultati dello studio mostra che il vero numero di casi probabilmente è molto più grande di quello effettivamente registrato, quasi il doppio degli infetti. Lo studio avverte sul fatto che i dati potrebbero dichiarare molti meno casi di quelli che sono nella realtà portando la popolazione e i governi a sottovalutare la situazione.
 		\\
 		\\
-		Il prossimo documento di cui si parlerà è \emph{"How simulation modelling can help reduce the impact of COVID-19"} a cura della professoressa Christine Currie pubblicato dal \emph{CORMSIS}, centro di ricerca operativa e statistica dell'Università del Southamoton, il 15 Aprile 2020 su Taylor\&Francis Online il quale tratta dei vari modelli utilizzati dai governi e dall'Organizzazione Mondiale della Sanità per decidere le migliori strategie per debellare la minaccia del CoViD-19. I modelli utilizzati sono modelli epidemiologici volti a comprendere la diffusione della malattia. In quest'articolo verranno discussi di come i vari modelli di simulazione potrebbe aiutare a prendere decisioni.
+		Il prossimo documento di cui si parlerà è \emph{"How simulation modelling can help reduce the impact of COVID-19"}\cite{Simulazioni} a cura della professoressa Christine Currie pubblicato dal \emph{CORMSIS}, centro di ricerca operativa e statistica dell'Università del Southamoton, il 15 Aprile 2020 su Taylor\&Francis Online il quale tratta dei vari modelli utilizzati dai governi e dall'Organizzazione Mondiale della Sanità per decidere le migliori strategie per debellare la minaccia del CoViD-19. I modelli utilizzati sono modelli epidemiologici volti a comprendere la diffusione della malattia. In quest'articolo verranno discussi di come i vari modelli di simulazione potrebbe aiutare a prendere decisioni.
 		Il presente articolo presenta due obbiettivi, il primo è dare una guida ai diversi modelli di simulazioni e quali tipi possono essere utili a prendere decisioni durante un'emergenza sanitaria; il secondo è una \emph{"Chiamata alle armi"} dei modellatori di simulazioni per migliorare le ricerche.
 		I modelli di tipo epidemiologico sono un'idea per predire il numero di nuovi casi identificando le migliori misure per ridurre i contagi, ma non aiutano ad organizzare l'organizzazione delle terapie intensive all'interno degli ospedali. Come nel paper precedente anche nel presente si indica il modello \emph{SEIR} come il modello più popolare per descrivere l'attuale pandemia per via del tempo di incubazione dato dallo stato di "Exposed".\\
 		Questo paper considera quattro metodi di modellazione:
@@ -55,7 +72,13 @@
 		\item \emph{Decisioni che riguardano la gestione delle risorse.}
 		\item \emph{Decisioni sulla salute della popolazione.}
 	\end{itemize}
-	\myworries{Inserire immagini decisioni}\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/Decisioni"}
+		\caption{Questo è uno schema sulle decisioni consigliate dal risultato di diverse tipologie di modelli per le simulazioni.}
+		\label{fig:decisioni}
+	\end{figure}
+ 	La Figura \ref{fig:decisioni} mette in luce le diverse decisioni suggerite dalle quattro tipologie di modelli in base a scala organizzativa e fase di emergenza.
 	Ora andiamo più nel dettaglio nelle decisioni per evitare la diffusione del virus descritte nel presente paper.\\
 	Come prima decisione possibile abbiamo quella della \emph{quarantena}, questo per evitare del tutto la diffusione del virus. Questa decisione è d'obbligo una volta individuato un caso di corona virus, questo fino alla sua completa guarigione in modo tale da non poter contagiare nessuno. L'articolo cita un articolo del 2016 intitolato "The Ebola crisis and the corresponding public behavior: A system dynamics approach" il quale dimostra di come la messa in quarantena dei casi di ebola ha avuto un impatto importante su combattere la malattia; questo però non è applicabile così facilmente alla pandemia da corona virus dato che i sintomi dell'ebola sono ben visibili sulla pelle dei malcapitati, a differenza di quelli da CoViD-19 che possono anche essere lievi o assenti.\\
 	Una seconda decisione che ha avuto un grande impatto sul nostro stile di vita, ma allo stesso è stato di grande aiuto per combattere la diffusione del virus sono le misure di \emph{distanziamento sociale}. Per distanziamento sociale si intendono quei comportamenti nel quale riduciamo, in parte ,il contatto umano in modo tale da essere sicuri di essere contagiati o di contagiare e quindi puntare a ridurre la crescita della curva dei contagi. Esempi di distanziamento sociale possono essere: \begin{itemize}
@@ -69,5 +92,87 @@
 	In conclusione il documento lascia un appello definendolo "The call to arms" invitando a sviluppare simulazioni in merito alla diffusione e ai comportamenti per combattere la diffusione del virus in modo tale da supportare la ricerca, per poi fare l'esempio dei "codebreakers" britannici insieme ad Alan Turing, durante la Seconda Guerra Mondiale, decriptarono Enigma mostrando che l'unione di un buon team risolve problemi difficili.\\
 	Lo sviluppo delle simulazioni si è dimostrato essere molto efficace, basti pensare al fatto che questo paper è stato redatto il 27 Marzo 2020 e seguendo le decisioni suggerite dalle simulazioni stiamo pian piano tornando alla normalità.\\
 	
-		
+	Esistono numerosi studi che utilizzano simulazioni riguardo al CoViD-19 per varie motivazioni, quali: allo scopo di fornire un modello per comprendere al meglio le dinamiche spazio-temporali della diffusione della pandemia
+	 \cite{Singapore}; oppure allo scopo di predire i rischi nel rimuovere le limitazioni di movimento alla popolazione illustrando anche l'efficacia delle mascherine in ambienti di simulazioni a lungo termine.\cite{Madrid}; o ancora studi con dati meno accurati ottenuti con sondaggi telefonici durante le prime fasi di pandemia per avere dati aggiuntivi rispetto a quelli forniti da istituzioni governative. \cite{HongKong}.
+	\chapter{Presentazione delle tecnologie}
+	In questo capitolo verranno mostrate, nel dettaglio, tutte le tecnologie utilizzate per la realizzazione della simulazione.
+	\section{Unity}
+	In primo luogo abbiamo la base della simulazione, Unity, un motore grafico multipiattaforma sviluppato da Unity Technologies utilizzato per lo sviluppo di contenuti interattivi, quali: videogiochi; simulazioni; esperienze interattive con dispositivi di realtà aumentata. \\
+	Possiamo dividere Unity in due sottosistemi, Unity Editor e Unity Engine. 
+	\subsection{Unity Editor}
+	Con Unity Editor si intende l'interfaccia grafica di Unity, la quale è costruita per rendere facili le interazioni da parte dell'utente, essa è completamente modificabile a piacere dell'utente che la possibilità di salvare il suo editor in profili per ogni situazione.\\
+	Ora parleremo delle diverse componenti della UI dell'editor di Unity.
+	\subsubsection{Inspector}
+	Ogni oggetto in unity è descritto dal concetto di GameObject, il quale identifica ogni oggetto in Unity. Ogni GameObject è decorato dai cosidetti \emph{Components}, i quali possono essere di diverso genere e comprendono mesh, script(in C\#), animazioni, rigidBody(il quale gestisce le componenti fisiche di un GameObject) e molti altri.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/Inspector"}
+		\caption{Questo è l'inspector di un semplice cubo in Unity}
+		\label{fig:Inspector}
+	\end{figure}
+
+	Come è possibile vedere nella figura \ref{fig:Inspector} l'inspector permette di aggiungere, rimuovere e modificare i \emph{component} dei GameObject.
+	\subsubsection{Hierarchy}
+	L'Hierarchy contiene tutti gli oggetti di scena, come si può intuire dal nome, gli oggetti vengono mostrati tramite una gerarchia ad albero dove come radice abbiamo la \emph{scena}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/Hierarchy"}
+		\caption{Questa è l'Hierarchy della simulazione.}
+		\label{fig:Hierarchy}
+	\end{figure}
+	Come si può vedere dalla figura \ref{fig:Hierarchy} possiamo vedere come radice abbiamo l'oggetto "Obuse" che è la scena principale della simulazione e come figli ci sono tutti gli oggetti di scena.
+	\subsubsection{Project}
+	La finestra \emph{Project} permette di gestire la directory del progetto nella quale sono presenti script, prefab, modelli, texture, file audio e scene.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/Project"}
+		\caption{Questa è la finestra Project della simulazione}
+		\label{fig:Project}	
+	\end{figure}
+	Come è possibile vedere nella figura \ref{fig:Project} il progetto è diviso in diverse cartelle per avere un'organizzazione migliore delle risorse.
+	
+	\subsubsection{Scene}
+		La finestra \emph{"Scene"} rappresenta la scena corrente, tutti i GameObject che sono nell'Hierarchy, come detto precedentemente, sono nella scena corrente. Dalla scena è possibile manipolare i GameObject con strumenti di traslazione, rotazione e ridimensionamento. Tramite il mouse e la tastiera possiamo navigare con facilità nella scena oppure per essere più rapidi è possibile fare focus sull'oggetto selezionato, o dall'Hierarchy o dalla scena, premendo il tasto \emph{F}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/Scene.png"}
+			\caption{Questa è la scena della simulazione}
+			\label{fig:Scene}
+		\end{figure}
+	Dalla figura \ref{fig:Scene} possiamo vedere tutta la scena della simulazione, compresa di gui(Delineata dal quadrato con bordi bianchi)
+	\subsubsection{Game}
+		La finestra \emph{Game} viene utilizzata quando si esegue il progetto, si passa alla finestra di game con la quale è possibile effettuare testi direttamente da Unity. Allo stesso tempo è possibile modificare parametri dalla scena e dall'Inspector mentre il Game è in esecuzione.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/PausedGame.png"}
+			\caption{Questo è il game in pausa}
+			\label{fig:PausedGame}
+		\end{figure}
+	Nella figura \ref{fig:PausedGame} viene mostrato il game quando è in pausa prima di iniziare, a sinistra si possono vedere vari slider per la gestione dei parametri della simulazione, mentre a destra abbiamo dei menù dropdown per la selezione degli agenti nelle varie fermate.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/PlayingGame.png"}
+		\caption{Questo è il game una volta iniziato}
+		\label{fig:PlayingGame}
+	\end{figure}
+	Nella figura \ref{fig:PlayingGame} viene mostrato il game in play, quindi cambia l'interfaccia, a sinistra abbiamo i vari bottoni per la gestione della velocità della simulazione, in alto a destra abbiamo l'orologio che scandisce il tempo della simulazione; il quale rispetta il tempo reale della tratta di Obuse e infine, in basso a destra, abbiamo i dati sugli agenti.
+	\subsubsection{Animation e Animator}
+		Come è stato detto in precedenza, gli agenti della simulazione sono completamente animati, quindi ora parleremo di Animazioni e Animator. La finestra Animator permette di creare e modificare le animazioni tramite la timeline dell'oggetto da animare. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/Animation"}
+			\caption{Questa è la finestra Animation dell'animazione \emph{"Sit to Stand"} dell'agente che gli permette di sedersi sull'autobus.}
+			\label{fig:Animation}
+		\end{figure}
+		Come è possibile vedere dalla figura \ref{fig:Animation} sulla sinistra abbiamo le sezioni dell'agente da animare, in alto abbiamo la timeline e al centro abbiamo i frame corrispondenti alle sezioni in corrispondenza del frame nella timeline.\\
+		Tutte le animazioni sono gestite dal component \emph{Animator}, una macchina a stati finiti in grado di gestire differenti stati e passare da uno stato all'altro attraverso transizioni. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/Animator"}
+			\caption{Questo è il component animator dell'agente.}
+			\label{fig:Animator}
+		\end{figure}
+		Dalla figura \ref{fig:Animator} è possibile vedere l'animator dell'agente composto da 4 stati (Idle,Stand to sit, Sit to stand e Walking). A destra è possibile vedere nel dettaglio la transizione che va dallo stato di Idle a quello di Stand to sit. Questa transizione avviene quando la variabile booleana \emph{Sit} ha valore true, come è possibile vedere nelle condizioni in basso.
+	\bibliographystyle{plain}
+	\bibliography{bib.bib}
 \end{document}
