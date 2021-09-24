@@ -74,7 +74,7 @@
 	\end{itemize}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/Decisioni"}
+		\includegraphics[width=0.8\linewidth]{"Immagini/Decisioni"}
 		\caption{Questo è uno schema sulle decisioni consigliate dal risultato di diverse tipologie di modelli per le simulazioni.}
 		\label{fig:decisioni}
 	\end{figure}
@@ -97,7 +97,7 @@
 	\chapter{Presentazione delle tecnologie}
 	In questo capitolo verranno mostrate, nel dettaglio, tutte le tecnologie utilizzate per la realizzazione della simulazione.
 	\section{Unity}
-	In primo luogo abbiamo la base della simulazione, Unity, un motore grafico multipiattaforma sviluppato da Unity Technologies utilizzato per lo sviluppo di contenuti interattivi, quali: videogiochi; simulazioni; esperienze interattive con dispositivi di realtà aumentata. \\
+	In primo luogo abbiamo la base della simulazione, Unity\cite{Unity}, un motore grafico multipiattaforma sviluppato da Unity Technologies utilizzato per lo sviluppo di contenuti interattivi, quali: videogiochi; simulazioni; esperienze interattive con dispositivi di realtà aumentata. \\
 	Possiamo dividere Unity in due sottosistemi, Unity Editor e Unity Engine. 
 	\subsection{Unity Editor}
 	Con Unity Editor si intende l'interfaccia grafica di Unity, la quale è costruita per rendere facili le interazioni da parte dell'utente, essa è completamente modificabile a piacere dell'utente che la possibilità di salvare il suo editor in profili per ogni situazione.\\
@@ -169,10 +169,121 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=1\linewidth]{"Immagini/Animator"}
-			\caption{Questo è il component animator dell'agente.}
+			\caption{Questo è il component animator.}
 			\label{fig:Animator}
 		\end{figure}
-		Dalla figura \ref{fig:Animator} è possibile vedere l'animator dell'agente composto da 4 stati (Idle,Stand to sit, Sit to stand e Walking). A destra è possibile vedere nel dettaglio la transizione che va dallo stato di Idle a quello di Stand to sit. Questa transizione avviene quando la variabile booleana \emph{Sit} ha valore true, come è possibile vedere nelle condizioni in basso.
+		Dalla figura \ref{fig:Animator} è possibile vedere, sulla sinistra, la macchina a stati finiti che è l'animator; sulla destra invece abbiamo il focus di una transizione, più precisamente dallo stato  \emph{Dark Dance 3} a \emph{Dark Dance 4} la quale avviene quando la variabile \emph{mode} ha valore pari a 13, come è possibile vedere nella sezione \emph{conditions}.
+	\subsection{Unity Engine}
+	Abbiamo parlato della parte di interfaccia utente di Unity, ora parleremo di quello che c'è dietro la realizzazione di un applicativo in Unity.
+	Il motore di Unity permette di gestire la fisica del mondo virtuale in modo semplice aggiungendo vari component ai gameObject, come il Rigidbody o i Collider. Più nello specifico il Rigidbody è un componente che permette ai GameObject di agire in risposta alle forze del mondo di gioco; ad esempio è possibile indicare se un oggetto deve essere soggetto alla gravità oppure è possibile bloccare rotazione o traslazione su uno specifico asse, tutto questo è possibile selezionarle all'interno dell'Inspector o tramite scripting in C\#.\\
+	I Collider, invece, permettono di gestire la collisione tra gli oggetti, più nello specifico permette di ascoltare le collisioni che avvengono tra Collider e Rigidbody. I Collider hanno diverse forme per addatarli ad ogni situazione; ad esempio abbiamo il BoxCollider, Sphere Collider, MeshCollider, CapsuleCollider.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/RigidBody.png"}
+		\caption{Questo è un cubo in unity, a destra possiamo vedere l'inspector con i component Boc Collider e Rigidbody.}
+		\label{fig:Rigidbody}
+	\end{figure}
+	Nella figura \ref{fig:Rigidbody} possiamo vedere un semplice cubo in unity e sulla destra il suo Inspector. Il component collider presenta parametri riguardo grandezza e posizione, e un campo \emph{"Is Trigger"} il quale indica che il collider è un trigger, cioè è attraversabile ed è possibile intercettare entrata,presenza all'interno e uscita di un oggetto. Mentre il Rigidbody presenta parametri per la massa, l'attrito e i vincoli sui movimenti e rotazione.
+	\subsubsection{Telecamera}
+	La camera in unity è uno dei GameObject più importanti, essa presenta due component principali:
+	\begin{itemize}
+		\item \textbf{Camera Component}, ciò che permette alla camera di riprendere il mondo di gioco
+		\item \textbf{Audio Listener}, è il nostro "orecchio sul mondo di gioco" infatti ci permette di catturare i suoni prodotti dalle fonti sonore.
+	\end{itemize}
+	Il render della telecamera è gestito da una particolare figura geometrica chiamata \emph{frustum}, nel caso specifico della telecamera è definito frustum di visione, il quale permette per l'appunto, di vedere quello che è presente in esso. Ogni parametro del frustum è modificabile nel \emph{Camera component}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/frustum.png"}
+		\caption{Questa è la figura geometrica frutum}
+		\label{fig:frustum}
+	\end{figure}
+	\subsection{A* Pathfinding Project}
+		A* Pathfinding Project\cite{A*} è un tool a cura di \emph{Aron Grandberg} che fa utilizzo del famoso algoritmo A* per il calcolo del percorso minimo.
+		Ora introdurremo l'algoritmo per poi passare a descrivere nel dettaglio il tool.
+		\textbf{A*} è un algoritmo di ricerca del tipo \emph{best-first} su grafi che individua un percorso da un nodo iniziale verso un nodo di destinazione. Ogni nodo ha un costo di entrata che rappresenta la distanza tra il nodo corrente e quello di inizio, e un valore che indica la distanza euristica dal nodo corrente a quello di destinazione, il costo del nodo è composto dalla somma dei due descritti precedentemente. L'algoritmo sceglie il nodo con costo totale minore, ricalcola il costo dei nodi vicini a quello scelto, continua così fino ad arrivare a destinazione.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/AStar"}
+			\caption{Questo è un esempio dell'algoritmo su un grafo a griglia}
+			\label{fig:AStar}
+		\end{figure}
+		Nella figura \ref{fig:AStar} possiamo vedere il percorso minimo calcolato con l'algoritmo A* in blu, in rosso possiamo vedere i nodi controllati, in verde quelli non controllati, mentre in nero abbiamo i nodi definiti come "ostacolo". 
+
+		Ora andiamo nel dettaglio del tool di Aron Granberg. \\
+		\emph{A* pathfinding project} permette di scegliere tra diversi tipologie di grafi in modo tale da adattarlo ad ogni situazione. Le tipologie di grafi sono le seguenti:
+		\begin{itemize}
+			\item \textbf{Grafo a griglia}, come dice il nome è un grafo che genera nodi seguendo un pattern a griglia, è un pattern molto utile soprattutto quando bisogna aggiornare il grafo a runtime. Il grafo a griglia permette anche di scegliere la forma effettiva dei nodi, come ad esempio è possibile scegliere tra nodi quadrati, esagonali o personalizzati; oltre ad ovviamente permettere di scegliere quanti vicini ha ogni nodo.
+			\item \textbf{Grafo Navmesh}, è un grafo che esprime i dati sul pathfinding come mesh a forma di triangolo. È un grafo che permette il calcolo del percorso minimo molto velocemente anche perché contiene meno nodi del grafo a griglia, quindi l'algoritmo richiede meno ricerca.
+			\item \textbf{Grafo a punti}, è il più semplice tra tutti i tipi di grafi, permette una elevata personalizzazione e consiste in un gruppo di punti collegati tra loro.
+		\end{itemize}
+	Una volta scelto il grafo è possibile scegliere anche un \emph{layer} per indicare quali GameObject sono ostacoli in modo tale da evitarli.
+	Per avere una personalizzazione completa del grafo è presente uno script, denominato \emph{Graph Update Scene}, che permette di disegnare sul grafo delle aree e quindi impostare a piacimento i valori dei nodi di quell'area.
+	Gli agenti che utilizzeranno il grafo per il calcolo del percorso minimo dovranno avere il due component principali, \emph{AIPath}, il quale permette di impostare vari parametri, come la velocità dell'agente o l'accelerazione. \emph{AIDestination Setter} il quale prende in input la destinazione dell'agente, il quale una volta impostata inizierà ad incamminarsi verso di essa. 
+	
+	\subsection{EasyRoad3D e Bézier Path Creator}
+	EasyRoad3D e Bèzier Path Creator sono due tool che si basano sulle curve di Bézier, delle curve formate da 4 punti: uno di inizio, uno di fine e due per la curvatura. \\
+	EasyRoad3d permette, come si può intuire dal nome, creare facilmente delle strade su Unity. Il tool permette una grande personalizzazione delle strade, in più è tutto gestibile dall'inspector e dalla scena, infatti è possibile inserire dei punti per la creazione della strada con un semplice \emph{shift+click}.\\
+	Bézier Path Creator permette di disegnare un percorso tramite un insieme di punti e di modificare la curvatura del percorso seguendo le regole delle curve di Bézier. Sul percorso è possibile far muovere un GameObject facilmente assegnandogli lo script \emph{Path follower}, il quale permette anche di impostare la velocità.
+	
+	\subsection{Probuilder}
+	Probuilder è un tool a cura di Unity stesso che permette di fare semplice modellazione direttamente in Unity, esso infatti è stato utilizzato recentemente per lo sviluppo di alcuni videogiochi, come ad esempio \emph{SUPERHOT, Lucky's Tale, Tacoma}.\\
+	Oltre a fornire diversi strumenti per la modellazione 3D, permette anche di generare delle forme predefinite come scale, archi e porte. È inoltre fornito di un'interfaccia grafica che si sovrappone alla scena in modo tale da avere tutti i tool a portata di click.
+	\subsection{Cinemachine}
+	Cinemachine è un tool a cura di Unity che permette di gestire con molta facilità e senza bisogno di scrivere codice la telecamera in Unity, ad esempio è possibile disegnare un percorso da far seguire alla telecamera. Il tool si basa sulla gestione di telecamere virtuali gestite da un component definito \emph{Cinemacine brain}, dal quale è possibile passare da una camera all'altra e gestire le diverse inquadrature. È possibile utilizzare anche una timeline per passare da una camera all'altra in un tempo specifico. Oltre ad essere stato utilizzato per la creazione di videogiochi, è stato utilizzato per la realizzazione di \emph{Baymax Deams}, un'animazione in collaborazione con \emph{Disney Television Animation} con il quale hanno vinto un \emph{ Technology and Engineering Emmy Awards} il 7 aprile 2019.
+	
+	\chapter{Simulazione nel dettaglio}
+	In questo capitolo si mostrerà il lavoro svolto per la realizzazione della simulazione. 
+	Si è iniziato partendo da un modello di autobus recuperato dall'asset store di Unity.
+	Come prima cosa è stata realizzata una semplice strada circolare con EasyRoad3D in modo tale da poter mettere gli oggetti di scena e iniziare a fare delle prove.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/StradaBase.png"}
+		\caption{Questa è la strada di prova}
+		\label{fig:StradaBase}
+	\end{figure}
+	Nella figura \ref{fig:StradaBase} mostra la strada di prova utilizzata l'inizio della realizzazione della simulazione.\\
+	Ora si parlerà dell'autobus, di come è stato creato ed utilizzato e di come ce ne siano state diverse versioni. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/SchoolBus.png"}
+		\caption{Questo è stato il primo bus della simulazione}
+		\label{fig:SchoolBus}
+	\end{figure}
+	Nella figura \ref{fig:SchoolBus} possiamo vedere un scuolabus in \emph{"low poly"} con tanto di animazioni e texture presenti nell'asset. Applicate delle piccole modifiche alle animazioni si è passati alla sperimentazione del tool A* pathfinding project, iniziando con un semplice cilindro come agente e provando a farlo salire sull'autobus. Dopo svariati tentativi nel quale non si era liberi di selezionare sezioni precise del bus dato il fatto che il modello scaricato era un blocco unico, compresi i posti a sedere e questa cosa era molto scomoda, soprattutto per gestire le sezioni calpestabili o meno del grafo di A*. Infatti non era permesso di selezionare le pareti dell'autobus per inserirle nel layer degli ostacoli in modo tale da indicarlo al grafo generato da A* Pathfinding Project.\\
+	Si è poi deciso di passare ad un bus molto più semplice, costituito da cubi base di unity.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/AutobusBase.png"}
+		\caption{Questa è la prima versione dell'autobus realizzato in Unity}
+		\label{fig:AutobusBase}
+	\end{figure}
+	Si è poi deciso di utilizzare il tool di Unity \emph{ProBuilder} per migliorare il bus della figura \ref{fig:AutobusBase} aggiungendo finestre, ruote, la rampa e semplici texture.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/BasicBus.png"}
+		\caption{Questo è il bus finale ad 8 posti utilizzato per la simulazione di prova}
+		\label{fig:BasicBus}
+	\end{figure}
+	Nella figura \ref{fig:BasicBus} si può vedere il bus creato con oggetti base di Unity per poi decidere di utilizzare il tool \emph{ProBuilder}, il quale ha permesso di modellare direttamente da unity senza l'utilizzo di applicativi esterni, per modificare al meglio le pareti in modo tale da creare le finestre per abbellire il modello. L'autobus presenta anche una rampa a scomparsa per rendere più facile la salita degli agenti sul bus.
+	Con il nuovo autobus e la possibilità di assegnare i layer ai singoli elementi, è stato facilmente possibile far salire il primo agente sul bus.\\
+	Ora che la salita sul bus è facilmente applicabile si è passati ad aggiungere una lista di \emph{"target"} davanti ai posti a sedere del bus, in modo tale da poterli assegnare ai vari agenti tramite script. Si è poi passati all'inserimento dei modelli degli agenti e quindi a lavorare sulle varie animazioni. Iniziando con l'animazione che va dallo stare in piedi allo stare seduto e poi quella da seduto allo stare in piedi.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/AgentAnimator.png"}
+		\caption{Questo è il component animator dell'agente}
+		\label{fig:AgentAnimator}
+	\end{figure}
+	La figura \ref{fig:AgentAnimator} mostra sulla sinistra la macchina a stati finiti composta dagli stati in cui si può trovare l'agente, ogni stato ha la sua animazione. Sulla destra invece possiamo vedere una prospettiva sulla transizione che va dallo stato di \emph{idle} a quello di \emph{Stand to Sit}, come si può vedere in basso la transizione avviene quando la variabile booleana Sit ha valore pari a true.\\
+	A questo punto della simulazione gli agenti si sedevano correttamente, ma spesso capitava che facessero percorsi strani o che camminassero sopra i posti a sedere, per questo motivo al bus sono stati aggiunti diversi GameObject con component \emph{Graph Update Scene}, in modo tale da poter penalizzare dei nodi del grafo per avere un percorso migliore per gli agenti.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/AreaGrafo.png"}
+		\caption{Questo è il grafo definitivo della simulazione.}
+		\label{fig:AreaGrafo}
+	\end{figure}
+	Nella figura \ref{fig:AreaGrafo} possiamo vedere diverse zone nel grafo: le zone verdi sono aree completamente calpestabili, quindi non modificate dal \emph{Graph Update Scene}; Le aree rosse sono aree calpestabili ma con penalità, per evitare che gli agenti scavalchino i sedili; le zone trasparenti con quadrati rossi sono zone non calpestabili. In più si può vedere il bus finale che è stato utilizzato nella simulazione definitiva di Obuse a 12 posti, in seguito se ne parlerà più approfonditamente.
 	\bibliographystyle{plain}
 	\bibliography{bib.bib}
+
 \end{document}
