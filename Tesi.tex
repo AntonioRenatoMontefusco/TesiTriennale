@@ -3,7 +3,35 @@
 \usepackage{xcolor}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{listings}
 \newcommand\myworries[1]{\textcolor{red}{#1}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\lstlistingname}{Script}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
 \begin{document}
 	\chapter*{Intruduzione}	
 		Il CoronaVirus-19, abbreviato CoViD-19, è un virus trovato per la prima volta a Wuhan, in Cina. Esso è conosciuto anche come \emph{Malattia respiratoria acuta}, abbreviato in \textbf{SARS-CoV-2}, dato che è un virus che come principale metodo di trasmissione utilizza le vie aeree ha avuto vita facile nel diffondersi velocemente, in effetti tutti respiriamo. In breve tempo si è passati dall'isolamento della Cina al doverlo definire \textbf{pandemia} e quindi passare ad un isolamento globale.
@@ -197,6 +225,15 @@
 		\caption{Questa è la figura geometrica frutum}
 		\label{fig:frustum}
 	\end{figure}
+	\subsubitem{Particle System Shuriken}
+		Unity presenta diversi sistemi di particelle, quello utilizzato per la simulazione è il \emph{Particle System Shuriken}, il quale permette di gestire facilmente la collisione delle particelle. Il sistema di particelle permette di creare molti effetti tramite l'utilizzo di moduli per la gestione dei parametri.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Immagini/ParticleSystem"}
+			\caption{Questi sono i moduli del Particle System Shuriken}
+			\label{fig:ParticleSystem}
+		\end{figure}
+		La figura \ref{fig:ParticleSystem} mostra i diversi moduli  del Particle System Shuriken, ogni modulo presenta diversi parametri per modificare al meglio il sistema di particelle.
 	\subsection{A* Pathfinding Project}
 		A* Pathfinding Project\cite{A*} è un tool a cura di \emph{Aron Grandberg} che fa utilizzo del famoso algoritmo A* per il calcolo del percorso minimo.
 		Ora introdurremo l'algoritmo per poi passare a descrivere nel dettaglio il tool.
@@ -233,7 +270,7 @@
 	
 	\chapter{Simulazione nel dettaglio}
 	In questo capitolo si mostrerà il lavoro svolto per la realizzazione della simulazione. 
-	Si è iniziato partendo da un modello di autobus recuperato dall'asset store di Unity.
+	\section{La Strada di prova}
 	Come prima cosa è stata realizzata una semplice strada circolare con EasyRoad3D in modo tale da poter mettere gli oggetti di scena e iniziare a fare delle prove.
 	\begin{figure}[H]
 		\centering
@@ -249,6 +286,7 @@
 		\caption{Questo è stato il primo bus della simulazione}
 		\label{fig:SchoolBus}
 	\end{figure}
+	\section{Il mezzo di trasporto}
 	Nella figura \ref{fig:SchoolBus} possiamo vedere un scuolabus in \emph{"low poly"} con tanto di animazioni e texture presenti nell'asset. Applicate delle piccole modifiche alle animazioni si è passati alla sperimentazione del tool A* pathfinding project, iniziando con un semplice cilindro come agente e provando a farlo salire sull'autobus. Dopo svariati tentativi nel quale non si era liberi di selezionare sezioni precise del bus dato il fatto che il modello scaricato era un blocco unico, compresi i posti a sedere e questa cosa era molto scomoda, soprattutto per gestire le sezioni calpestabili o meno del grafo di A*. Infatti non era permesso di selezionare le pareti dell'autobus per inserirle nel layer degli ostacoli in modo tale da indicarlo al grafo generato da A* Pathfinding Project.\\
 	Si è poi deciso di passare ad un bus molto più semplice, costituito da cubi base di unity.
 	\begin{figure}[H]
@@ -267,7 +305,9 @@
 	\end{figure}
 	Nella figura \ref{fig:BasicBus} si può vedere il bus creato con oggetti base di Unity per poi decidere di utilizzare il tool \emph{ProBuilder}, il quale ha permesso di modellare direttamente da unity senza l'utilizzo di applicativi esterni, per modificare al meglio le pareti in modo tale da creare le finestre per abbellire il modello. L'autobus presenta anche una rampa a scomparsa per rendere più facile la salita degli agenti sul bus.
 	Con il nuovo autobus e la possibilità di assegnare i layer ai singoli elementi, è stato facilmente possibile far salire il primo agente sul bus.\\
-	Ora che la salita sul bus è facilmente applicabile si è passati ad aggiungere una lista di \emph{"target"} davanti ai posti a sedere del bus, in modo tale da poterli assegnare ai vari agenti tramite script. Si è poi passati all'inserimento dei modelli degli agenti e quindi a lavorare sulle varie animazioni. Iniziando con l'animazione che va dallo stare in piedi allo stare seduto e poi quella da seduto allo stare in piedi.
+	Ora che la salita sul bus è facilmente applicabile si è passati ad aggiungere una lista di \emph{"target"} davanti ai posti a sedere del bus, in modo tale da poterli assegnare ai vari agenti tramite script.
+	\section{L'agente}
+	 Si è poi passati all'inserimento dei modelli degli agenti e quindi a lavorare sulle varie animazioni. Iniziando con l'animazione che va dallo stare in piedi allo stare seduto e poi quella da seduto allo stare in piedi.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{"Immagini/AgentAnimator.png"}
@@ -275,6 +315,34 @@
 		\label{fig:AgentAnimator}
 	\end{figure}
 	La figura \ref{fig:AgentAnimator} mostra sulla sinistra la macchina a stati finiti composta dagli stati in cui si può trovare l'agente, ogni stato ha la sua animazione. Sulla destra invece possiamo vedere una prospettiva sulla transizione che va dallo stato di \emph{idle} a quello di \emph{Stand to Sit}, come si può vedere in basso la transizione avviene quando la variabile booleana Sit ha valore pari a true.\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/seduto.png"}
+		\caption{Frame dell'animazione di seduta}
+		\label{fig:Seduta}
+	\end{figure}
+	Nella figura \ref{fig:Seduta} è mostrato un frame dell'animazione di seduta e il collider dell'agente che si restringe.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/inPiedi.png"}
+		\caption{Frame dell'animazione di alzata}
+		\label{fig:Alzata}
+	\end{figure}
+	Nella figura \ref{fig:Alzata} si può vedere un frame dell'animazione di alzata, denominata \emph{Sit to Stand}, si può vedere anche il collider dell'agente che ritorna alla forma originale.\\
+	Il passaggio delle varie animazioni è stato gestito da script assegnando valore alle variabili booleane dell'animator.
+	\begin{lstlisting}[language={[Sharp]C}, 
+		caption={Metodo che permette agli agenti di prendere posto sull'autobus}, label={TakeBus}]
+		public void TakeBus()
+		{
+			if (!bus.isMooving && bus.FreeTarget() != null && target== null)
+			{
+				animator.SetBool("Waiting", false);
+				target = bus.FreeTarget();
+				SetDestination(target);
+			}
+		}
+	\end{lstlisting}	
+	Lo script \ref{TakeBus} è il metodo all'interno della classe \emph{Agent} con il quale l'agente prende un posto a sedere sul bus, rendendolo occupato ed inizia ad incamminarsi verso di esso. Come è possibile vedere dalla riga 5, si modifica la variabile booleana \emph{Waiting}, all'interno del component \emph{Animator} assegnandole valore pari a \emph{false} così da passare dallo stato di \emph{Waiting} allo stato di \emph{Walking} .  \newpage
 	A questo punto della simulazione gli agenti si sedevano correttamente, ma spesso capitava che facessero percorsi strani o che camminassero sopra i posti a sedere, per questo motivo al bus sono stati aggiunti diversi GameObject con component \emph{Graph Update Scene}, in modo tale da poter penalizzare dei nodi del grafo per avere un percorso migliore per gli agenti.
 	\begin{figure}[H]
 		\centering
@@ -283,6 +351,67 @@
 		\label{fig:AreaGrafo}
 	\end{figure}
 	Nella figura \ref{fig:AreaGrafo} possiamo vedere diverse zone nel grafo: le zone verdi sono aree completamente calpestabili, quindi non modificate dal \emph{Graph Update Scene}; Le aree rosse sono aree calpestabili ma con penalità, per evitare che gli agenti scavalchino i sedili; le zone trasparenti con quadrati rossi sono zone non calpestabili. In più si può vedere il bus finale che è stato utilizzato nella simulazione definitiva di Obuse a 12 posti, in seguito se ne parlerà più approfonditamente.
+	In seguito si è passati all'integrare il local avoidance tramite \emph{Reciprocal Velocity Obstacles(RVO)} del tool A* Pathfinding Project, il quale ha permesse di gestire facilmente il distanziamento tra gli agenti, impedendo compenetrazioni e varie problematiche che potevano accadere implementando tale funzione. Un problema però è presente, alla salita degli agenti sul bus può capitare che distanziandosi sulla rampa, gli agenti cadano da essa finendo col camminare al di sotto del bus. Questo è stato risolto riposizionando, una volta arrivati a destinazione, gli agenti sul posto assegnato.
+	
+	\begin{lstlisting}[language={[Sharp]C}, caption={Metodo per la seduta degli agenti}, label={SitDown}]
+		private void SitDown()
+		{
+			if (State == States.Healthy)
+			{
+				gameObject.AddComponent<ColliderCovid>();
+				GetComponent<ColliderCovid>().InfectionPercentage = 	gameControl.infectionPercentage;
+			}
+			StartCoroutine(RotateOnSpot());
+			aiPath.enabled = false;
+			animator.SetBool("Waiting", true);
+			animator.SetBool("Sit", true);
+			rigidCube.tag = "Exiting";
+			
+			transform.position = target.transform.position;
+			bool haveRigidBody = gameObject.GetComponent<Rigidbody>() != null;
+			
+			if (!haveRigidBody)
+			{
+				gameObject.AddComponent<Rigidbody>().freezeRotation = true;
+			}
+		}
+	\end{lstlisting}
+	\section{Il percorso del mezzo di trasporto}
+	Come è possibile vedere dallo script \ref{SitDown} alla riga 14 viene risolto il problema dell'agente al di sotto del bus riposizionandolo nella giusta posizione.\\
+	Si è poi passati all'integrazione del tool \emph{Beziér Path Creator}, per far muovere l'autobus. Quindi si è tracciato un percorso sulla strada in modo tale che il bus lo seguisse.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/BezierPath.png"}
+		\caption{Questo è un tratto del percorso.}
+		\label{fig:BezierPath}
+	\end{figure}
+	Nella figura \ref{fig:BezierPath} si vede, in verde, un tratto del percorso disegnato con Beziér Path Creator sul quale il bus si muove.\\
+
+	\section{title}
+	Giunti alla situazione nella quale gli agenti salgono correttamente sul bus, prendono posto e si siedono, il bus si muove seguendo il percorso disegnato ci si è spostati sulla creazione di fermate per gli agenti, in modo tale da simulare le varie tratte dell'autobus, iniziando con una semplice struttura e una linea che funge da \emph{trigger} per far si che l'autobus si fermi.\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/BusStopNoSA.png"}
+		\caption{Fermata del bus}
+		\label{fig:BusStopNoSA}
+	\end{figure}
+	Nella figura \ref{fig:BusStopNoSA} è possibile vedere una semplice struttura per dare l'idea di fermata, sulla sinistra, mentre sulla destra abbiamo la linea che fa da \emph{trigger} per l'autobus.\\
+	
+	 È stato poi considerato utile aggiungere un GameObject denominato \emph{Spawning Area}, all'interno di ciascuna fermata con il quale era possibile impostare la grandezza dell'area dove venivano generati gli agenti, deciderne il numero e decidere la velocità di ripartenza del bus. Questa scelta si è rivelata molto utile per passare dalla scena di prova a quella effettiva della simulazione.
+	 \begin{figure}[H]
+	 	\centering
+	 	\includegraphics[width=1\linewidth]{"Immagini/BusStopSA.png"}
+	 	\caption{Fermata del bus con area di spawning}
+	 	\label{fig:BusStopSA}
+	 \end{figure}
+ 	L'area rossa nella figura \ref{fig:BusStopSA} è l'area di spawning, nella quale vengono generati gli agenti, di seguito nella figura \ref{fig:SAInspector} verrà mostrato nel dettaglio l'inspector dell'area.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/SAInspector.png"}
+ 		\caption{Inspector dell'area di spawning}
+ 		\label{fig:SAInspector}
+ 	\end{figure}
+ 	Tramite la variabile \emph{Size} è possibile modificare l'area nella quale verranno generati gli agenti; \emph{Average Pendulars} permette di impostare il numero medio di agenti da generare alla fermata, il perché del numero medio di agenti invece di un numero fisso verrà spiegato in seguito; \emph{Restart Speed} permette di decidere la velocità di ripartenza del bus in modo tale da poter far rispettare degli orari reali.
 	\bibliographystyle{plain}
 	\bibliography{bib.bib}
 
