@@ -46,7 +46,7 @@
 			\item Infetto, indicato in giallo
 			
 		\end{itemize} 
-		
+		Come è visibile nella Figura \ref{fig:agenti}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{"Immagini/Agenti"}
@@ -54,7 +54,7 @@
 		\label{fig:agenti}
 	\end{figure}
 
-		come è visibile nella Figura \ref{fig:agenti}\\
+		
 		I dati sul numero di pendolari della tratta sono stati presi da un articolo riguardante uno studio pre-pandemia sui viaggiatori della cittadina giapponese di Obuse\cite{Obuse}, della quale è stato preso il percorso della tratta del bus. La simulazione permette di selezionare la percentuale di contagiati iniziale e la percentuale di infezione del virus in modo tale da effettuare facilmente diversi test. Il numero di persone alle fermate è selezionabile per ogni singola fermata in modo tale da poter essere utilizzate in diversi percorsi o più semplicemente applicarlo alle stime dei pendolari attuali.\\
 		All'avvio della simulazione viene generato un file .csv che verrà riempito per ogni tratta del bus con le informazioni generate sugli agenti, come il numero i agenti totali, quelli contagiosi, quelli infetti e quelli sani.
 		\\
@@ -163,7 +163,7 @@
 		La finestra \emph{"Scene"} rappresenta la scena corrente, tutti i GameObject che sono nell'Hierarchy, come detto precedentemente, sono nella scena corrente. Dalla scena è possibile manipolare i GameObject con strumenti di traslazione, rotazione e ridimensionamento. Tramite il mouse e la tastiera possiamo navigare con facilità nella scena oppure per essere più rapidi è possibile fare focus sull'oggetto selezionato, o dall'Hierarchy o dalla scena, premendo il tasto \emph{F}.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{"Immagini/Scene.png"}
+			\includegraphics[width=0.72\linewidth]{"Immagini/Scene.png"}
 			\caption{Questa è la scena della simulazione}
 			\label{fig:Scene}
 		\end{figure}
@@ -188,7 +188,7 @@
 		Come è stato detto in precedenza, gli agenti della simulazione sono completamente animati, quindi ora parleremo di Animazioni e Animator. La finestra Animator permette di creare e modificare le animazioni tramite la timeline dell'oggetto da animare. 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{"Immagini/Animation"}
+			\includegraphics[width=0.8\linewidth]{"Immagini/Animation"}
 			\caption{Questa è la finestra Animation dell'animazione \emph{"Sit to Stand"} dell'agente che gli permette di sedersi sull'autobus.}
 			\label{fig:Animation}
 		\end{figure}
@@ -196,7 +196,7 @@
 		Tutte le animazioni sono gestite dal component \emph{Animator}, una macchina a stati finiti in grado di gestire differenti stati e passare da uno stato all'altro attraverso transizioni. 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{"Immagini/Animator"}
+			\includegraphics[width=0.8\linewidth]{"Immagini/Animator"}
 			\caption{Questo è il component animator.}
 			\label{fig:Animator}
 		\end{figure}
@@ -207,7 +207,7 @@
 	I Collider, invece, permettono di gestire la collisione tra gli oggetti, più nello specifico permette di ascoltare le collisioni che avvengono tra Collider e Rigidbody. I Collider hanno diverse forme per addatarli ad ogni situazione; ad esempio abbiamo il BoxCollider, Sphere Collider, MeshCollider, CapsuleCollider.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/RigidBody.png"}
+		\includegraphics[width=0.8\linewidth]{"Immagini/RigidBody.png"}
 		\caption{Questo è un cubo in unity, a destra possiamo vedere l'inspector con i component Boc Collider e Rigidbody.}
 		\label{fig:Rigidbody}
 	\end{figure}
@@ -221,7 +221,7 @@
 	Il render della telecamera è gestito da una particolare figura geometrica chiamata \emph{frustum}, nel caso specifico della telecamera è definito frustum di visione, il quale permette per l'appunto, di vedere quello che è presente in esso. Ogni parametro del frustum è modificabile nel \emph{Camera component}.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/frustum.png"}
+		\includegraphics[width=0.5\linewidth]{"Immagini/frustum.png"}
 		\caption{Questa è la figura geometrica frutum}
 		\label{fig:frustum}
 	\end{figure}
@@ -269,12 +269,12 @@
 	Cinemachine è un tool a cura di Unity che permette di gestire con molta facilità e senza bisogno di scrivere codice la telecamera in Unity, ad esempio è possibile disegnare un percorso da far seguire alla telecamera. Il tool si basa sulla gestione di telecamere virtuali gestite da un component definito \emph{Cinemacine brain}, dal quale è possibile passare da una camera all'altra e gestire le diverse inquadrature. È possibile utilizzare anche una timeline per passare da una camera all'altra in un tempo specifico. Oltre ad essere stato utilizzato per la creazione di videogiochi, è stato utilizzato per la realizzazione di \emph{Baymax Deams}, un'animazione in collaborazione con \emph{Disney Television Animation} con il quale hanno vinto un \emph{ Technology and Engineering Emmy Awards} il 7 aprile 2019.
 	
 	\chapter{Simulazione nel dettaglio}
-	In questo capitolo si mostrerà il lavoro svolto per la realizzazione della simulazione. 
+	In questo capitolo si mostrerà il lavoro svolto nel dettaglio, per la realizzazione della simulazione. Partendo dalla simulazione base, per poi passare alla simulazione effettiva sulla strada di Obuse. 
 	\section{La Strada di prova}
 	Come prima cosa è stata realizzata una semplice strada circolare con EasyRoad3D in modo tale da poter mettere gli oggetti di scena e iniziare a fare delle prove.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/StradaBase.png"}
+		\includegraphics[width=0.7\linewidth]{"Immagini/StradaBase.png"}
 		\caption{Questa è la strada di prova}
 		\label{fig:StradaBase}
 	\end{figure}
@@ -282,7 +282,7 @@
 	Ora si parlerà dell'autobus, di come è stato creato ed utilizzato e di come ce ne siano state diverse versioni. 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/SchoolBus.png"}
+		\includegraphics[width=0.7\linewidth]{"Immagini/SchoolBus.png"}
 		\caption{Questo è stato il primo bus della simulazione}
 		\label{fig:SchoolBus}
 	\end{figure}
@@ -291,7 +291,7 @@
 	Si è poi deciso di passare ad un bus molto più semplice, costituito da cubi base di unity.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/AutobusBase.png"}
+		\includegraphics[width=0.8\linewidth]{"Immagini/AutobusBase.png"}
 		\caption{Questa è la prima versione dell'autobus realizzato in Unity}
 		\label{fig:AutobusBase}
 	\end{figure}
@@ -317,14 +317,14 @@
 	La figura \ref{fig:AgentAnimator} mostra sulla sinistra la macchina a stati finiti composta dagli stati in cui si può trovare l'agente, ogni stato ha la sua animazione. Sulla destra invece possiamo vedere una prospettiva sulla transizione che va dallo stato di \emph{idle} a quello di \emph{Stand to Sit}, come si può vedere in basso la transizione avviene quando la variabile booleana Sit ha valore pari a true.\\
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/seduto.png"}
+		\includegraphics[width=0.8\linewidth]{"Immagini/seduto.png"}
 		\caption{Frame dell'animazione di seduta}
 		\label{fig:Seduta}
 	\end{figure}
 	Nella figura \ref{fig:Seduta} è mostrato un frame dell'animazione di seduta e il collider dell'agente che si restringe.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{"Immagini/inPiedi.png"}
+		\includegraphics[width=0.8\linewidth]{"Immagini/inPiedi.png"}
 		\caption{Frame dell'animazione di alzata}
 		\label{fig:Alzata}
 	\end{figure}
@@ -387,7 +387,7 @@
 	\end{figure}
 	Nella figura \ref{fig:BezierPath} si vede, in verde, un tratto del percorso disegnato con Beziér Path Creator sul quale il bus si muove.\\
 
-	\section{title}
+	\section{La fermata}
 	Giunti alla situazione nella quale gli agenti salgono correttamente sul bus, prendono posto e si siedono, il bus si muove seguendo il percorso disegnato ci si è spostati sulla creazione di fermate per gli agenti, in modo tale da simulare le varie tratte dell'autobus, iniziando con una semplice struttura e una linea che funge da \emph{trigger} per far si che l'autobus si fermi.\\
 	\begin{figure}[H]
 		\centering
@@ -411,7 +411,150 @@
  		\caption{Inspector dell'area di spawning}
  		\label{fig:SAInspector}
  	\end{figure}
- 	Tramite la variabile \emph{Size} è possibile modificare l'area nella quale verranno generati gli agenti; \emph{Average Pendulars} permette di impostare il numero medio di agenti da generare alla fermata, il perché del numero medio di agenti invece di un numero fisso verrà spiegato in seguito; \emph{Restart Speed} permette di decidere la velocità di ripartenza del bus in modo tale da poter far rispettare degli orari reali.
+ 	Tramite la variabile \emph{Size} è possibile modificare l'area nella quale verranno generati gli agenti; \emph{Average Pendulars} permette di impostare il numero medio di agenti da generare alla fermata, il perché del numero medio di agenti invece di un numero fisso verrà spiegato in seguito; \emph{Restart Speed} permette di decidere la velocità di ripartenza del bus in modo tale da poter far rispettare degli orari reali.  
+ 	\section{Il virus}
+ 	La diffusione del virus è stata gestita tramite il particle system shuriken di Unity, il quale permette di gestire facilmente le collisioni con le particelle. Si è iniziati a realizzare un particle system che desse l'effetto dello spostamento d'aria, quindi un effetto di fumo che uscisse dalla bocca come è possibile vedere nella figura \ref{fig:SmokeEffect}.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.5\linewidth]{"Immagini/SmokeEffect.png"}
+ 		\caption{Effetto di fumo che parte dalla bocca dell'agente}
+ 		\label{fig:SmokeEffect}
+ 	\end{figure}
+ 	Quindi si è passati alla realizzazione di un particle system che avesse un collider sulle particelle, un semplice effetto con delle sfere, inizialmente formate da un modello di CoVid-19 visibile nella figura \ref{fig:Covid}
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.5\linewidth]{"Immagini/Covid.png"}
+ 		\caption{Modello dettagliato di CoViD-19}
+ 		\label{fig:Covid}
+ 	\end{figure}
+ 	Per poi essere sostituito per ottimizzazione delle performance in seguito, ma questo se ne parlerà nella sezione dell'ottimizzazione.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.5\linewidth]{"Immagini/CovidEffect.png"}
+ 		\caption{Effetto che simula le particelle infette di covid in un colpo di tosse}
+ 		\label{fig:CovidEffect}
+ 	\end{figure}
+ 	Nella figura \ref{fig:CovidEffect} si vede l'effetto delle particelle che simulano quelle infette da covid, ogni particella ha un collider che permette di catturare le collisioni con il collider dell'agente sano che è possible vedere nella figura \ref{fig:ColliderCovid}
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.5\linewidth]{"Immagini/ColliderCovid.png"}
+ 		\caption{Il collider con il quale l'agente può essere infettato da una particella}
+ 		\label{fig:ColliderCovid}
+ 	\end{figure}
+ 	Una volta che una particella di covid entra in collisione con il \emph{collider} dell'agente sano, esso può diventare infetto, e quindi cambiare colore da verde a giallo
+ 	\section{Il GameControl}
+ 		Il GameControl è il GameObject che gestisce buona parte dei parametri della simulazione,  infatti esso gestisce la generazione degli agenti, quanti agenti sono contagiosi all'interno della simulazione, la percentuale di che un agente venga infettato da una singola particella o il calcolare le statistiche della simulazione e scriverle su file.
+ 		\begin{figure}[H]
+ 			\centering
+ 			\includegraphics[width=1\linewidth]{"Immagini/GameControl.png"}
+ 			\caption{L'inspector del GameControl}
+ 			\label{fig:GameControl}
+ 		\end{figure}
+ 		Nella figura \ref{fig:GameControl} è possibile vedere i parametri dell'oggetto GameControl citati precedentemente.
+ 	\section{La tratta di Obuse}
+ 	Con la simulazione funzionante si è poi passati alla ricerca di documenti su tratte di autobus reali, trovando un articolo riguardo al volume dei passeggeri sulla tratta di bus della cittadina giapponese Obuse \cite{Obuse}, il volume è stato calcolato tramite una stima basata sui Wi-Fi scanner presenti sulla tratta.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/MappaObuse.jpg"}
+ 		\caption{Mappa della tratta di Obuse}
+ 		\label{fig:Map}
+ 	\end{figure}
+ 	Nella figura \ref{fig:Map} si vede, in rosso, la tratta del bus, mentre nella figura \ref{fig:Pendolari} si vede la media dei pendolari su ogni fermata della tratta.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/MediaPendolari.png"}
+ 		\caption{Media di pendolari per ogni fermata della tratta}
+ 		\label{fig:Pendolari}
+ 	\end{figure}
+ 	Considerando che i dati sono stati raccolti prima della pandemia da CoViD-19, è stato deciso di dimezzare i dati. Si è passati quindi dal bus a 24 posti ad uno a 12 posti, si è dimezzato il numero di pendolari per ogni fermata, e si è deciso di generare un numero di pendolari in un intervallo di $\pm30\%$ della media calcolata tramite Wi-Fi scanner.
+ 	\begin{lstlisting}[language={[Sharp]C}, 
+ 		caption={Genera i pendolari alle fermate}, label={SpawningAtStops}]
+ 		   public void SpawningAtStops()
+ 		{
+ 			
+ 			List<SpawningArea> areas = new List<SpawningArea>();
+ 			foreach (Transform stop in stops)
+ 			{
+ 				List<SpawningArea> spawnAreas=Utility<SpawningArea>.GetAllChildren(stop.gameObject);
+ 				areas.Add(spawnAreas[0]);
+ 				areas.Add(spawnAreas[1]);
+ 				
+ 			}
+ 			foreach (SpawningArea area in areas)
+ 			{
+ 				
+ 				int effectivePendulars = Random.Range(area.AvaragePendulars - area.AvaragePendulars * 30 / 100, area.AvaragePendulars + area.AvaragePendulars * 30 / 100);
+ 				
+ 				for (int i = 0; i < effectivePendulars; i++)
+ 				SpawnAgent(area);
+ 			}
+ 		}
+ 	\end{lstlisting}
+ 	Nel codice \ref{SpawningAtStops}, alla riga 15, è presente il codice che indica il range di $\pm30\%$ della media.\\
+ 	Si è poi passati alla realizzazione in scala della strada su Unity utilizzando EasyRoad3D come è si vede nella figura \ref{fig:ObuseStreet}, in verde è possibile anche vedere il percorso del bus realizzato con Bezièr Path Creator. 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/ObuseStreet.png"}
+ 		\caption{Strada di Obuse in Unity}
+ 		\label{fig:ObuseStreet}
+ 	\end{figure}
+ 
+ 	\section{L'interfaccia}
+ 	Una volta arrivati alla simulazione funzionante, si è passati alla realizzazione di un'interfaccia grafica semplice ed intuitiva, inserendo l'orologio che scandisce il tempo reale, degli slider per la gestione dei parametri, dei pulsanti per la gestione del tempo della simulazione e del testo per i dati sul contagio. L'interfaccia grafica si divide in due parti, quando la simulazione è in pausa e quando è in play.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.8\linewidth]{"Immagini/PausedGui.png"}
+ 		\caption{Interfaccia della simulazione in pausa}
+ 		\label{fig:InterfacciaPausa}
+ 	\end{figure}
+ 	Nella figura \ref{fig:InterfacciaPausa} sono presenti diversi slider, sulla sinistra per la gestione dei parametri di contagio, sulla destra sono presenti due menu dropdown e uno slider per scegliere il numero di agenti da generare su una fermata selezionata dai menu, infine un pulsante al centro per far partire la simulazione.
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.8\linewidth]{"Immagini/PlayGui.png"}
+ 		\caption{Interfaccia della simulazione in play}
+ 		\label{fig:InterfacciaPlay}
+ 	\end{figure}
+ 	Nella figura \ref{fig:InterfacciaPlay} sono presenti, sulla sinistra i bottoni per la gestione del tempo, in alto a destra un orologio che scandisce il tempo reale della simulazione e in basso a destra sono presenti i dati del contagio della simulazione.
+ 	\section{La telecamera}
+ 	La telecamera è stata gestita completamente con il tool Cinemachine, come è possibile vedere nella figura \ref{fig:Cinemachine}, il quale ha permesso di creare una telecamera isometrica che seguisse il bus per l'intera simulazione senza scrivere codice.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.7\linewidth]{"Immagini/Cinemachine.png"}
+ 		\caption{La griglia della telecamera, il puntino giallo indica l'oggetto da seguire}
+ 		\label{fig:Cinemachine}
+ 	\end{figure}
+ 	\section{L'ottimizzazione}
+ 	Il lavoro di ottimizzazione è iniziato nel momento in cui la simulazione aveva cali drastici di framerate, anche su diverse macchine. Tramite il \emph{Profiler}, strumento presente in unity in grado di mostrare l'utilizzo di risorse della macchina e quale processo in particolare sta sfruttando le risorse, si è riusciti a comprendere quali erano i principali problemi. Come è possibile vedere dalla figura \ref{fig:ProfilerFPSBassi} ci sono dei cali drastici a 15 FPS che causano non pochi problemi.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/ProfilerFPSBassi.png"}
+ 		\caption{Questo è il profiler della simulazione prima dei cambiamenti}
+ 		\label{fig:ProfilerFPSBassi}
+ 	\end{figure}
+ 	Con il \emph{profiler} alla mano e la simulazione in \emph{play}, si è riusciti a comprendere in quali fasi avesse questi cali drastici. Come primo problema la telecamera era in una pessima angolazione, in alcune zone della tratta la posizione della telecamera le permetteva di inquadrare l'intera mappa, come è possibile vedere dalla figura \ref{fig:CameraBrutta}, quindi renderizzando l'intero mondo della simulazione sfruttava molte risorse. Si è quindi ridotto la \emph{distanza di render} della telecamera e si è passati ad un'inquadratura a \emph{volo di uccello} facendo sì che non si veda la strada che viene generata.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/CameraBrutta.png"}
+ 		\caption{Questa è un frame nel quale la simulazione perdeva molti frame per secondo}
+ 		\label{fig:CameraBrutta}
+ 	\end{figure}
+ 	Una volta risolto il problema della telecamera, si è notato che i cali erano, in frequenza minore, ma comunque presenti. Tramite il \emph{profiler} ci si è accorti che il processo che sfruttava più risorse in certi momenti era il \emph{particle system}, infatti i frame per secondo si abbassavano quando venivano emesse le particelle. Si è quindi passati a ridurre il numero di particelle emesse, da 10 ad 8, e si è cambiato il modello con il quale venivano generate, non più il modello nella figura \ref{fig:Covid} ma delle semplici sfere.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/ProfilerBuoniFPS.png"}
+ 		\caption{Questo è il profiler della simulazione a 5x}
+ 		\label{fig:ProfilerBuoniFPS}
+ 	\end{figure} 
+ 	Ora la simulazione ha un'ottima media di frame per secondo, anche a 5x, come è possibile vedere nella figura \ref{fig:ProfilerBuoniFPS}.
+ 	\section{La raccolta dei dati}
+ 	Ad ogni avvio della simulazione viene generato un file contenente le informazioni riguardo il contagio, come è possibile vedere nella figura \ref{fig:csv}. Ad ogni tratta viene generata una riga contenente il numero di agenti totali, quelli contagiosi, quelli infetti e quelli sani.
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{"Immagini/csv.png"}
+ 		\caption{Raccolta dati di una simulazione completa}
+ 		\label{fig:csv}
+ 	\end{figure}
 	\bibliographystyle{plain}
 	\bibliography{bib.bib}
 
