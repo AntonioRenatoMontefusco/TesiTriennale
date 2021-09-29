@@ -33,12 +33,12 @@
 \lstset{style=mystyle}
 
 \begin{document}
-	\chapter*{Intruduzione}	
-		Il CoronaVirus-19, abbreviato CoViD-19, è un virus trovato per la prima volta a Wuhan, in Cina. Esso è conosciuto anche come \emph{Malattia respiratoria acuta}, abbreviato in \textbf{SARS-CoV-2}, dato che è un virus che come principale metodo di trasmissione utilizza le vie aeree ha avuto vita facile nel diffondersi velocemente, in effetti tutti respiriamo. In breve tempo si è passati dall'isolamento della Cina al doverlo definire \textbf{pandemia} e quindi passare ad un isolamento globale.
+	\chapter*{Introduzione}	
+		Il CoronaVirus-19, abbreviato \emph{CoViD-19}, è un virus trovato per la prima volta a Wuhan, in Cina. Esso è conosciuto anche come \emph{Malattia respiratoria acuta}, abbreviato in \textbf{SARS-CoV-2}, dato che è un virus che come principale metodo di trasmissione utilizza le vie aeree ha avuto vita facile nel diffondersi velocemente, in effetti tutti respiriamo. In breve tempo si è passati dall'isolamento della Cina al doverlo definire \textbf{pandemia} e quindi passare ad un isolamento globale.
 		Per la sua facilità di diffusione e per la sua pericolosità per alcuni soggetti più deboli è stato necessario modificare lo stile di vita a cui si era abituati, iniziando con i lockdown, dovendo passare alla didattica a distanza perdendo la socialità dei luoghi di studio, abbiamo visto l'economia rallentare, nei casi peggiori crollare e la socialità in presenza scomparire per via della chiusura temporanea di aziende e luoghi definiti "non di prima necessità".
 		Questa situazione ha dato una motivazione per effettuare studi e ricerche in questo ambito, sia per ridurre i sintomi del virus, in buona parte già sta avvenendo con i vari vaccini, sia per permettere alle persone di incontrarsi e lavorare come prima della pandemia trovando metodi per ridurre i contagi come le mascherine. In Italia stiamo allentando la presa sulle restrizioni grazie anche all'avvento del \emph{GreenPass} il quale permette di certificare che si è vaccinati o che si hanno gli anticorpi dovuti ad un'infezione da CoViD-19. Questo però non ferma il contagio dato che il vaccino permette agli individui di avere sintomi più lievi ma è comunque possibile essere contagiati e diffondere il virus. 
 		Uno degli aspetti che coinvolge un po' tutte le persone, sia per divertimento che per lavoro è il trasporto pubblico. Non tutti hanno un mezzo di trasporto proprio o per molti addirittura non conviene, basti pensare alle grandi città con lunghe code per il traffico a tal punto da fare prima a far il tragitto a piedi. Quindi molti optano per i trasporti pubblici ma qui è dove avvengono i principali contagi dovuti ai luoghi chiusi, stretti e poco arieggiati che impediscono di seguire perfettamente le normative dettate dal governo e dall'Organizzazione Mondiale della Sanità (OMS); questo è uno dei principali motivi del lavoro di tesi.\\
-		L'obbiettivo del progetto di tesi è quello di creare una simulazione ad agenti estendibile a diversi tipi di percorsi e abitudini cittadine diverse, da cui recuperare dati sulle persone e sui contagi che avvengono su un mezzo di trasporto pubblico (nel nostro caso si tratta di un autobus). La simulazione è stata realizzata interamente in Unity3D,un motore grafico di che consente lo sviluppo di contenuti interattivi digitali, sia 2D che 3D, come ad esempio videogiochi e simulazioni. Sono stati anche utilizzati tool ed algoritmi per risolvere  vari problemi , come ad esempio abbiamo utilizzato \emph{A* Pathfinding Project} a cura di Aron Granberg per il calcolo del percorso degli agenti. 
+		L'obbiettivo del progetto di tesi è quello di creare una simulazione ad agenti estendibile a diversi tipi di percorsi e abitudini cittadine diverse, da cui recuperare dati sulle persone e sui contagi che avvengono su un mezzo di trasporto pubblico (nel nostro caso si tratta di un autobus). La simulazione è stata realizzata interamente in Unity3D,un motore grafico di che consente lo sviluppo di contenuti interattivi digitali, sia 2D che 3D, come ad esempio videogiochi e simulazioni. Sono stati anche utilizzati tool ed algoritmi per risolvere  vari problemi, come ad esempio abbiamo utilizzato \emph{A* Pathfinding Project} a cura di Aron Granberg per il calcolo del percorso degli agenti. 
 		\\Gli agenti vengono distinti in:
 		\begin{itemize}
 			\item Sano, indicato in verde
@@ -52,10 +52,8 @@
 		\includegraphics[width=1\linewidth]{"Immagini/Agenti"}
 		\caption{Stati degli agenti}
 		\label{fig:agenti}
-	\end{figure}
-
-		
-		I dati sul numero di pendolari della tratta sono stati presi da un articolo riguardante uno studio pre-pandemia sui viaggiatori della cittadina giapponese di Obuse\cite{Obuse}, della quale è stato preso il percorso della tratta del bus. La simulazione permette di selezionare la percentuale di contagiati iniziale e la percentuale di infezione del virus in modo tale da effettuare facilmente diversi test. Il numero di persone alle fermate è selezionabile per ogni singola fermata in modo tale da poter essere utilizzate in diversi percorsi o più semplicemente applicarlo alle stime dei pendolari attuali.\\
+	\end{figure}		
+		I dati sul numero di pendolari della tratta sono stati presi da un articolo riguardante uno studio pre-pandemia sui viaggiatori della cittadina giapponese di Obuse \cite{Obuse}, della quale è stato preso il percorso della tratta del bus. La simulazione permette di selezionare la percentuale di contagiati iniziale e la percentuale di infezione del virus in modo tale da effettuare facilmente diversi test. Il numero di persone alle fermate è selezionabile per ogni singola fermata in modo tale da poter essere utilizzate in diversi percorsi o più semplicemente applicarlo alle stime dei pendolari attuali.\\
 		All'avvio della simulazione viene generato un file .csv che verrà riempito per ogni tratta del bus con le informazioni generate sugli agenti, come il numero i agenti totali, quelli contagiosi, quelli infetti e quelli sani.
 		\\
 		La tesi sarà suddivisa nelle seguenti sezioni:
@@ -67,8 +65,8 @@
 			\item\textbf{Conclusione e sviluppi futuri}: si analizzeranno le limitazioni del lavoro allo stato attuale e si metteranno in risalto idee per sviluppi futuri
 		\end{itemize}
 	\chapter{Stato dell'arte}
-		Dalla scoperta del salto di specie effettuato dal CoViD-19 sull'essere umano ad oggi ci sono stati innumerevoli studi, ricerche su vari aspetti della malattia, sul suo impatto sulla società in ambito politico,sociale ed economico. Ci sono anche varie simulazioni sulla sua diffusione in varie situazioni come trasporti pubblici, uffici, ospedali, locali pubblici. \\
-		Come primo articolo si parlerà di "Simulaion-based Estimation of the Spread of COVID-19 in Iran"\cite{Iran} pubblicato il 27 Marzo 2020 su medRxiv. Come primo luogo l'articolo mette in luce i problemi dovuti ai dati provenienti dai vari paesi colpiti dal virus, definendoli altamente inaffidabili perché non tengono conto che i sintomi lievi del CoViD-19 sono assimilabili al raffreddore stagionale o alla comune influenza, in più molti testi vengono effettuati tramite screening limitati, un metodo per effettuare esami a tappeto allo scopo di individuare una malattia. Tutti questi dati non vengono combinati con le statistiche ufficiali sulla diffusione del virus e si va quindi a sottovalutare la quantità di infetti.
+		Dalla scoperta del salto di specie effettuato dal CoViD-19 sull'essere umano ad oggi ci sono stati innumerevoli studi, ricerche su vari aspetti della malattia, sul suo impatto sulla società in ambito politico, sociale ed economico. Ci sono anche varie simulazioni sulla sua diffusione in varie situazioni come trasporti pubblici, uffici, ospedali, locali pubblici. \\
+		Come primo articolo si parlerà di "Simulaion-based Estimation of the Spread of COVID-19 in Iran" \cite{Iran} pubblicato il 27 Marzo 2020 su medRxiv. Come primo luogo l'articolo mette in luce i problemi dovuti ai dati provenienti dai vari paesi colpiti dal virus, definendoli altamente inaffidabili perché non tengono conto che i sintomi lievi del CoViD-19 sono assimilabili al raffreddore stagionale o alla comune influenza, in più molti testi vengono effettuati tramite screening limitati, un metodo per effettuare esami a tappeto allo scopo di individuare una malattia. Tutti questi dati non vengono combinati con le statistiche ufficiali sulla diffusione del virus e si va quindi a sottovalutare la quantità di infetti.
 		Lo studio è stato effettuato sulla diffusione del virus in Iran nei primi mesi del 2020.\\
 		È stato sviluppato un modello dinamico per fornire un quadro affidabile dello stato della malattia basandosi sui dati esistenti. Il modello si basa sul framework \textbf{SEIR}(Suscettibile, Esposto, Infetto, Ricoverato); 
 		\begin{figure}[H]
@@ -83,7 +81,7 @@
 		I risultati dello studio mostra che il vero numero di casi probabilmente è molto più grande di quello effettivamente registrato, quasi il doppio degli infetti. Lo studio avverte sul fatto che i dati potrebbero dichiarare molti meno casi di quelli che sono nella realtà portando la popolazione e i governi a sottovalutare la situazione.
 		\\
 		\\
-		Il prossimo documento di cui si parlerà è \emph{"How simulation modelling can help reduce the impact of COVID-19"}\cite{Simulazioni} a cura della professoressa Christine Currie pubblicato dal \emph{CORMSIS}, centro di ricerca operativa e statistica dell'Università del Southamoton, il 15 Aprile 2020 su Taylor\&Francis Online il quale tratta dei vari modelli utilizzati dai governi e dall'Organizzazione Mondiale della Sanità per decidere le migliori strategie per debellare la minaccia del CoViD-19. I modelli utilizzati sono modelli epidemiologici volti a comprendere la diffusione della malattia. In quest'articolo verranno discussi di come i vari modelli di simulazione potrebbe aiutare a prendere decisioni.
+		Il prossimo documento di cui si parlerà è  \emph{"How simulation modelling can help reduce the impact of COVID-19"} \cite{Simulazioni} a cura della professoressa Christine Currie pubblicato dal \emph{CORMSIS}, centro di ricerca operativa e statistica dell'Università del Southamoton, il 15 Aprile 2020 su Taylor\&Francis Online il quale tratta dei vari modelli utilizzati dai governi e dall'Organizzazione Mondiale della Sanità per decidere le migliori strategie per debellare la minaccia del CoViD-19. I modelli utilizzati sono modelli epidemiologici volti a comprendere la diffusione della malattia. In quest'articolo verranno discussi di come i vari modelli di simulazione potrebbe aiutare a prendere decisioni.
 		Il presente articolo presenta due obbiettivi, il primo è dare una guida ai diversi modelli di simulazioni e quali tipi possono essere utili a prendere decisioni durante un'emergenza sanitaria; il secondo è una \emph{"Chiamata alle armi"} dei modellatori di simulazioni per migliorare le ricerche.
 		I modelli di tipo epidemiologico sono un'idea per predire il numero di nuovi casi identificando le migliori misure per ridurre i contagi, ma non aiutano ad organizzare l'organizzazione delle terapie intensive all'interno degli ospedali. Come nel paper precedente anche nel presente si indica il modello \emph{SEIR} come il modello più popolare per descrivere l'attuale pandemia per via del tempo di incubazione dato dallo stato di "Exposed".\\
 		Questo paper considera quattro metodi di modellazione:
@@ -109,23 +107,22 @@
  	La Figura \ref{fig:decisioni} mette in luce le diverse decisioni suggerite dalle quattro tipologie di modelli in base a scala organizzativa e fase di emergenza.
 	Ora andiamo più nel dettaglio nelle decisioni per evitare la diffusione del virus descritte nel presente paper.\\
 	Come prima decisione possibile abbiamo quella della \emph{quarantena}, questo per evitare del tutto la diffusione del virus. Questa decisione è d'obbligo una volta individuato un caso di corona virus, questo fino alla sua completa guarigione in modo tale da non poter contagiare nessuno. L'articolo cita un articolo del 2016 intitolato "The Ebola crisis and the corresponding public behavior: A system dynamics approach" il quale dimostra di come la messa in quarantena dei casi di ebola ha avuto un impatto importante su combattere la malattia; questo però non è applicabile così facilmente alla pandemia da corona virus dato che i sintomi dell'ebola sono ben visibili sulla pelle dei malcapitati, a differenza di quelli da CoViD-19 che possono anche essere lievi o assenti.\\
-	Una seconda decisione che ha avuto un grande impatto sul nostro stile di vita, ma allo stesso è stato di grande aiuto per combattere la diffusione del virus sono le misure di \emph{distanziamento sociale}. Per distanziamento sociale si intendono quei comportamenti nel quale riduciamo, in parte ,il contatto umano in modo tale da essere sicuri di essere contagiati o di contagiare e quindi puntare a ridurre la crescita della curva dei contagi. Esempi di distanziamento sociale possono essere: \begin{itemize}
+	Una seconda decisione che ha avuto un grande impatto sul nostro stile di vita, ma allo stesso è stato di grande aiuto per combattere la diffusione del virus sono le misure di \emph{distanziamento sociale}. Per distanziamento sociale si intendono quei comportamenti nel quale riduciamo, in parte, il contatto umano in modo tale da essere sicuri di essere contagiati o di contagiare e quindi puntare a ridurre la crescita della curva dei contagi. Esempi di distanziamento sociale possono essere: \begin{itemize}
 		\item mantenere una distanza di sicurezza di circa due metri in modo tale da non far arrivare gocce di saliva alla persona con cui stiamo colloquiando
 		\item lavorare da casa quando è possibile, infatti molte aziende sono passate allo smart-working, in modo tale da continuare a lavorare tranquillamente anche da casa.
 		\item Cancellare eventi i quali prevedono un elevato numero di persone.
 		\item chiudere le scuole e optare per le lezioni in remoto.
 		\item evitare di incontrare fisicamente amici e parenti.
 	\end{itemize}
-	Un decisione molto più drastica delle due precedenti è il lock-down imposto dal governo in modo tale da costringere la popolazione al distanziamento sociale e a lasciare le abitazioni sono in caso di prima necessità, come andare a fare la spesa, andare a lavorare ed uscire per motivi di salute. Per ovviare a problemi legati all'economia ogni governo può includere una soglia di valori sul quando rilassare le restrizioni in modo tale da permettere ai lavoratori che non eseguono un lavoro considerato di "Prima necessità" di lavorare facendo girare l'economia.\\
+	Una decisione molto più drastica delle due precedenti è il lock-down imposto dal governo in modo tale da costringere la popolazione al distanziamento sociale e a lasciare le abitazioni sono in caso di prima necessità, come andare a fare la spesa, andare a lavorare ed uscire per motivi di salute. Per ovviare a problemi legati all'economia ogni governo può includere una soglia di valori sul quando rilassare le restrizioni in modo tale da permettere ai lavoratori che non eseguono un lavoro considerato di "Prima necessità" di lavorare facendo girare l'economia.\\
 	In conclusione il documento lascia un appello definendolo "The call to arms" invitando a sviluppare simulazioni in merito alla diffusione e ai comportamenti per combattere la diffusione del virus in modo tale da supportare la ricerca, per poi fare l'esempio dei "codebreakers" britannici insieme ad Alan Turing, durante la Seconda Guerra Mondiale, decriptarono Enigma mostrando che l'unione di un buon team risolve problemi difficili.\\
 	Lo sviluppo delle simulazioni si è dimostrato essere molto efficace, basti pensare al fatto che questo paper è stato redatto il 27 Marzo 2020 e seguendo le decisioni suggerite dalle simulazioni stiamo pian piano tornando alla normalità.\\
 	
-	Esistono numerosi studi che utilizzano simulazioni riguardo al CoViD-19 per varie motivazioni, quali: allo scopo di fornire un modello per comprendere al meglio le dinamiche spazio-temporali della diffusione della pandemia
-	 \cite{Singapore}; oppure allo scopo di predire i rischi nel rimuovere le limitazioni di movimento alla popolazione illustrando anche l'efficacia delle mascherine in ambienti di simulazioni a lungo termine.\cite{Madrid}; o ancora studi con dati meno accurati ottenuti con sondaggi telefonici durante le prime fasi di pandemia per avere dati aggiuntivi rispetto a quelli forniti da istituzioni governative. \cite{HongKong}.
+	Esistono numerosi studi che utilizzano simulazioni riguardo al CoViD-19 per varie motivazioni, quali: allo scopo di fornire un modello per comprendere al meglio le dinamiche spazio-temporali della diffusione della pandemia \cite{Singapore}; oppure allo scopo di predire i rischi nel rimuovere le limitazioni di movimento alla popolazione illustrando anche l'efficacia delle mascherine in ambienti di simulazioni a lungo termine \cite{Madrid}; o ancora studi con dati meno accurati ottenuti con sondaggi telefonici durante le prime fasi di pandemia per avere dati aggiuntivi rispetto a quelli forniti da istituzioni governative \cite{HongKong}.
 	\chapter{Presentazione delle tecnologie}
 	In questo capitolo verranno mostrate, nel dettaglio, tutte le tecnologie utilizzate per la realizzazione della simulazione.
 	\section{Unity}
-	In primo luogo abbiamo la base della simulazione, Unity\cite{Unity}, un motore grafico multipiattaforma sviluppato da Unity Technologies utilizzato per lo sviluppo di contenuti interattivi, quali: videogiochi; simulazioni; esperienze interattive con dispositivi di realtà aumentata. \\
+	In primo luogo abbiamo la base della simulazione, Unity \cite{Unity}, un motore grafico multipiattaforma sviluppato da Unity Technologies utilizzato per lo sviluppo di contenuti interattivi, quali: videogiochi; simulazioni; esperienze interattive con dispositivi di realtà aumentata. \\
 	Possiamo dividere Unity in due sottosistemi, Unity Editor e Unity Engine. 
 	\subsection{Unity Editor}
 	Con Unity Editor si intende l'interfaccia grafica di Unity, la quale è costruita per rendere facili le interazioni da parte dell'utente, essa è completamente modificabile a piacere dell'utente che la possibilità di salvare il suo editor in profili per ogni situazione.\\
@@ -160,7 +157,7 @@
 	Come è possibile vedere nella figura \ref{fig:Project} il progetto è diviso in diverse cartelle per avere un'organizzazione migliore delle risorse.
 	
 	\subsubsection{Scene}
-		La finestra \emph{"Scene"} rappresenta la scena corrente, tutti i GameObject che sono nell'Hierarchy, come detto precedentemente, sono nella scena corrente. Dalla scena è possibile manipolare i GameObject con strumenti di traslazione, rotazione e ridimensionamento. Tramite il mouse e la tastiera possiamo navigare con facilità nella scena oppure per essere più rapidi è possibile fare focus sull'oggetto selezionato, o dall'Hierarchy o dalla scena, premendo il tasto \emph{F}.
+		La finestra \emph{"Scene"} rappresenta la scena corrente, tutti i \emph{GameObject} che sono nell'Hierarchy, come detto precedentemente, sono nella scena corrente. Dalla scena è possibile manipolare i \emph{GameObject} con strumenti di traslazione, rotazione e ridimensionamento. Tramite il mouse e la tastiera possiamo navigare con facilità nella scena oppure per essere più rapidi è possibile fare focus sull'oggetto selezionato, o dall'Hierarchy o dalla scena, premendo il tasto \emph{F}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.72\linewidth]{"Immagini/Scene.png"}
@@ -176,7 +173,7 @@
 			\caption{Questo è il game in pausa}
 			\label{fig:PausedGame}
 		\end{figure}
-	Nella figura \ref{fig:PausedGame} viene mostrato il game quando è in pausa prima di iniziare, a sinistra si possono vedere vari slider per la gestione dei parametri della simulazione, mentre a destra abbiamo dei menù dropdown per la selezione degli agenti nelle varie fermate.
+	Nella figura \ref{fig:PausedGame} viene mostrato il game quando è in pausa prima di iniziare, a sinistra si possono vedere vari slider per la gestione dei parametri della simulazione, mentre a destra abbiamo dei menù a tendina per la selezione degli agenti nelle varie fermate.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{"Immagini/PlayingGame.png"}
@@ -208,10 +205,10 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\linewidth]{"Immagini/RigidBody.png"}
-		\caption{Questo è un cubo in unity, a destra possiamo vedere l'inspector con i component Boc Collider e Rigidbody.}
+		\caption{Questo è un cubo in unity, a destra possiamo vedere l'inspector con i component Box Collider e Rigidbody.}
 		\label{fig:Rigidbody}
 	\end{figure}
-	Nella figura \ref{fig:Rigidbody} possiamo vedere un semplice cubo in unity e sulla destra il suo Inspector. Il component collider presenta parametri riguardo grandezza e posizione, e un campo \emph{"Is Trigger"} il quale indica che il collider è un trigger, cioè è attraversabile ed è possibile intercettare entrata,presenza all'interno e uscita di un oggetto. Mentre il Rigidbody presenta parametri per la massa, l'attrito e i vincoli sui movimenti e rotazione.
+	Nella figura \ref{fig:Rigidbody} possiamo vedere un semplice cubo in unity e sulla destra il suo Inspector. Il component collider presenta parametri riguardo grandezza e posizione, e un campo \emph{"Is Trigger"} il quale indica che il collider è un trigger, cioè è attraversabile ed è possibile intercettare entrata, presenza all'interno e uscita di un oggetto. Mentre il Rigidbody presenta parametri per la massa, l'attrito e i vincoli sui movimenti e rotazione.
 	\subsubsection{Telecamera}
 	La camera in unity è uno dei GameObject più importanti, essa presenta due component principali:
 	\begin{itemize}
@@ -235,7 +232,7 @@
 		\end{figure}
 		La figura \ref{fig:ParticleSystem} mostra i diversi moduli  del Particle System Shuriken, ogni modulo presenta diversi parametri per modificare al meglio il sistema di particelle.
 	\subsection{A* Pathfinding Project}
-		A* Pathfinding Project\cite{A*} è un tool a cura di \emph{Aron Grandberg} che fa utilizzo del famoso algoritmo A* per il calcolo del percorso minimo.
+		A* Pathfinding Project \cite{A*} è un tool a cura di \emph{Aron Grandberg} che fa utilizzo del famoso algoritmo A* per il calcolo del percorso minimo.
 		Ora introdurremo l'algoritmo per poi passare a descrivere nel dettaglio il tool.
 		\textbf{A*} è un algoritmo di ricerca del tipo \emph{best-first} su grafi che individua un percorso da un nodo iniziale verso un nodo di destinazione. Ogni nodo ha un costo di entrata che rappresenta la distanza tra il nodo corrente e quello di inizio, e un valore che indica la distanza euristica dal nodo corrente a quello di destinazione, il costo del nodo è composto dalla somma dei due descritti precedentemente. L'algoritmo sceglie il nodo con costo totale minore, ricalcola il costo dei nodi vicini a quello scelto, continua così fino ad arrivare a destinazione.
 		\begin{figure}[H]
@@ -258,15 +255,36 @@
 	Gli agenti che utilizzeranno il grafo per il calcolo del percorso minimo dovranno avere il due component principali, \emph{AIPath}, il quale permette di impostare vari parametri, come la velocità dell'agente o l'accelerazione. \emph{AIDestination Setter} il quale prende in input la destinazione dell'agente, il quale una volta impostata inizierà ad incamminarsi verso di essa. 
 	
 	\subsection{EasyRoad3D e Bézier Path Creator}
-	EasyRoad3D e Bèzier Path Creator sono due tool che si basano sulle curve di Bézier, delle curve formate da 4 punti: uno di inizio, uno di fine e due per la curvatura. \\
+	EasyRoad3D \cite{EasyRoad3D} e Bézier Path Creator \cite{Bezier}
+	sono due tool che si basano sulle curve di Bézier, delle curve formate da 4 punti: uno di inizio, uno di fine e due per la curvatura. \\
 	EasyRoad3d permette, come si può intuire dal nome, creare facilmente delle strade su Unity. Il tool permette una grande personalizzazione delle strade, in più è tutto gestibile dall'inspector e dalla scena, infatti è possibile inserire dei punti per la creazione della strada con un semplice \emph{shift+click}.\\
 	Bézier Path Creator permette di disegnare un percorso tramite un insieme di punti e di modificare la curvatura del percorso seguendo le regole delle curve di Bézier. Sul percorso è possibile far muovere un GameObject facilmente assegnandogli lo script \emph{Path follower}, il quale permette anche di impostare la velocità.
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/EasyRoad+Bezier.png"}
+		\caption{La strada creata con EasyRoad3D e il percorso creato con Beziér Path Creator}
+		\label{fig:E+B}
+	\end{figure}
+	Nella Figura \ref{fig:E+B} è possibile vedere la strada realizzata con EasyRoad3D e, in verde è possibile vedere il percorso realizzato con Beziér Path Creator.
 	
-	\subsection{Probuilder}
-	Probuilder è un tool a cura di Unity stesso che permette di fare semplice modellazione direttamente in Unity, esso infatti è stato utilizzato recentemente per lo sviluppo di alcuni videogiochi, come ad esempio \emph{SUPERHOT, Lucky's Tale, Tacoma}.\\
+	\subsection{ProBuilder}
+	Probuilder è un tool a cura di Unity stesso che permette di fare semplice modellazione direttamente in Unity, come è possibile vedere nella Figura \ref{fig:proBuilder}, esso infatti è stato utilizzato recentemente per lo sviluppo di alcuni videogiochi, come ad esempio \emph{SUPERHOT, Lucky's Tale, Tacoma}.\\
 	Oltre a fornire diversi strumenti per la modellazione 3D, permette anche di generare delle forme predefinite come scale, archi e porte. È inoltre fornito di un'interfaccia grafica che si sovrappone alla scena in modo tale da avere tutti i tool a portata di click.
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/probuilder.jpg"}
+		\caption{Struttura modellata tramite ProBuilder}
+		\label{fig:probuilder}
+	\end{figure}
 	\subsection{Cinemachine}
-	Cinemachine è un tool a cura di Unity che permette di gestire con molta facilità e senza bisogno di scrivere codice la telecamera in Unity, ad esempio è possibile disegnare un percorso da far seguire alla telecamera. Il tool si basa sulla gestione di telecamere virtuali gestite da un component definito \emph{Cinemacine brain}, dal quale è possibile passare da una camera all'altra e gestire le diverse inquadrature. È possibile utilizzare anche una timeline per passare da una camera all'altra in un tempo specifico. Oltre ad essere stato utilizzato per la creazione di videogiochi, è stato utilizzato per la realizzazione di \emph{Baymax Deams}, un'animazione in collaborazione con \emph{Disney Television Animation} con il quale hanno vinto un \emph{ Technology and Engineering Emmy Awards} il 7 aprile 2019.
+	Cinemachine \cite{Cinemachine} è un tool a cura di Unity che permette di gestire con molta facilità e senza bisogno di scrivere codice la telecamera in Unity, ad esempio è possibile disegnare un percorso da far seguire alla telecamera. Il tool si basa sulla gestione di telecamere virtuali gestite da un component definito \emph{Cinemachine brain}, dal quale è possibile passare da una camera all'altra e gestire le diverse inquadrature come è possibile vedere nella Figura \ref{fig:CinemachineLogo}. È possibile utilizzare anche una timeline per passare da una camera all'altra in un tempo specifico. Oltre ad essere stato utilizzato per la creazione di videogiochi, è stato utilizzato per la realizzazione di \emph{Baymax Deams}, un'animazione in collaborazione con \emph{Disney Television Animation} con il quale hanno vinto un \emph{ Technology and Engineering Emmy Awards} il 7 aprile 2019.
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Immagini/CinemachineLogo.jpg"}
+		\caption{Inquadratura realizzata con cinemachine}
+		\label{fig:CinemachineLogo}
+	\end{figure}
+	
 	
 	\chapter{Simulazione nel dettaglio}
 	In questo capitolo si mostrerà il lavoro svolto nel dettaglio, per la realizzazione della simulazione. Partendo dalla simulazione base, per poi passare alla simulazione effettiva sulla strada di Obuse. 
@@ -278,7 +296,7 @@
 		\caption{Questa è la strada di prova}
 		\label{fig:StradaBase}
 	\end{figure}
-	Nella figura \ref{fig:StradaBase} mostra la strada di prova utilizzata l'inizio della realizzazione della simulazione.\\
+	Nella Figura \ref{fig:StradaBase} mostra la strada di prova utilizzata l'inizio della realizzazione della simulazione.\\
 	Ora si parlerà dell'autobus, di come è stato creato ed utilizzato e di come ce ne siano state diverse versioni. 
 	\begin{figure}[H]
 		\centering
@@ -287,7 +305,7 @@
 		\label{fig:SchoolBus}
 	\end{figure}
 	\section{Il mezzo di trasporto}
-	Nella figura \ref{fig:SchoolBus} possiamo vedere un scuolabus in \emph{"low poly"} con tanto di animazioni e texture presenti nell'asset. Applicate delle piccole modifiche alle animazioni si è passati alla sperimentazione del tool A* pathfinding project, iniziando con un semplice cilindro come agente e provando a farlo salire sull'autobus. Dopo svariati tentativi nel quale non si era liberi di selezionare sezioni precise del bus dato il fatto che il modello scaricato era un blocco unico, compresi i posti a sedere e questa cosa era molto scomoda, soprattutto per gestire le sezioni calpestabili o meno del grafo di A*. Infatti non era permesso di selezionare le pareti dell'autobus per inserirle nel layer degli ostacoli in modo tale da indicarlo al grafo generato da A* Pathfinding Project.\\
+	Nella Figura \ref{fig:SchoolBus} possiamo vedere un scuolabus in \emph{"low poly"} con tanto di animazioni e texture presenti nell'asset. Applicate delle piccole modifiche alle animazioni si è passati alla sperimentazione del tool A* pathfinding project, iniziando con un semplice cilindro come agente e provando a farlo salire sull'autobus. Dopo svariati tentativi nel quale non si era liberi di selezionare sezioni precise del bus dato il fatto che il modello scaricato era un blocco unico, compresi i posti a sedere e questa cosa era molto scomoda, soprattutto per gestire le sezioni calpestabili o meno del grafo di A*. Infatti non era permesso di selezionare le pareti dell'autobus per inserirle nel layer degli ostacoli in modo tale da indicarlo al grafo generato da A* Pathfinding Project.\\
 	Si è poi deciso di passare ad un bus molto più semplice, costituito da cubi base di unity.
 	\begin{figure}[H]
 		\centering
@@ -295,7 +313,7 @@
 		\caption{Questa è la prima versione dell'autobus realizzato in Unity}
 		\label{fig:AutobusBase}
 	\end{figure}
-	Si è poi deciso di utilizzare il tool di Unity \emph{ProBuilder} per migliorare il bus della figura \ref{fig:AutobusBase} aggiungendo finestre, ruote, la rampa e semplici texture.
+	Si è poi deciso di utilizzare il tool di Unity \emph{ProBuilder} per migliorare il bus della Figura \ref{fig:AutobusBase} aggiungendo finestre, ruote, la rampa e semplici texture.
 
 	\begin{figure}[H]
 		\centering
@@ -303,7 +321,7 @@
 		\caption{Questo è il bus finale ad 8 posti utilizzato per la simulazione di prova}
 		\label{fig:BasicBus}
 	\end{figure}
-	Nella figura \ref{fig:BasicBus} si può vedere il bus creato con oggetti base di Unity per poi decidere di utilizzare il tool \emph{ProBuilder}, il quale ha permesso di modellare direttamente da unity senza l'utilizzo di applicativi esterni, per modificare al meglio le pareti in modo tale da creare le finestre per abbellire il modello. L'autobus presenta anche una rampa a scomparsa per rendere più facile la salita degli agenti sul bus.
+	Nella Figura \ref{fig:BasicBus} si può vedere il bus creato con oggetti base di Unity per poi decidere di utilizzare il tool \emph{ProBuilder}, il quale ha permesso di modellare direttamente da unity senza l'utilizzo di applicativi esterni, per modificare al meglio le pareti in modo tale da creare le finestre per abbellire il modello. L'autobus presenta anche una rampa a scomparsa per rendere più facile la salita degli agenti sul bus.
 	Con il nuovo autobus e la possibilità di assegnare i layer ai singoli elementi, è stato facilmente possibile far salire il primo agente sul bus.\\
 	Ora che la salita sul bus è facilmente applicabile si è passati ad aggiungere una lista di \emph{"target"} davanti ai posti a sedere del bus, in modo tale da poterli assegnare ai vari agenti tramite script.
 	\section{L'agente}
@@ -314,21 +332,21 @@
 		\caption{Questo è il component animator dell'agente}
 		\label{fig:AgentAnimator}
 	\end{figure}
-	La figura \ref{fig:AgentAnimator} mostra sulla sinistra la macchina a stati finiti composta dagli stati in cui si può trovare l'agente, ogni stato ha la sua animazione. Sulla destra invece possiamo vedere una prospettiva sulla transizione che va dallo stato di \emph{idle} a quello di \emph{Stand to Sit}, come si può vedere in basso la transizione avviene quando la variabile booleana Sit ha valore pari a true.\\
+	La Figura \ref{fig:AgentAnimator} mostra sulla sinistra la macchina a stati finiti composta dagli stati in cui si può trovare l'agente, ogni stato ha la sua animazione. Sulla destra invece possiamo vedere una prospettiva sulla transizione che va dallo stato di \emph{idle} a quello di \emph{Stand to Sit}, come si può vedere in basso la transizione avviene quando la variabile booleana Sit ha valore pari a true.\\
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\linewidth]{"Immagini/seduto.png"}
 		\caption{Frame dell'animazione di seduta}
 		\label{fig:Seduta}
 	\end{figure}
-	Nella figura \ref{fig:Seduta} è mostrato un frame dell'animazione di seduta e il collider dell'agente che si restringe.
+	Nella Figura \ref{fig:Seduta} è mostrato un frame dell'animazione di seduta e il collider dell'agente che si restringe.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\linewidth]{"Immagini/inPiedi.png"}
 		\caption{Frame dell'animazione di alzata}
 		\label{fig:Alzata}
 	\end{figure}
-	Nella figura \ref{fig:Alzata} si può vedere un frame dell'animazione di alzata, denominata \emph{Sit to Stand}, si può vedere anche il collider dell'agente che ritorna alla forma originale.\\
+	Nella Figura \ref{fig:Alzata} si può vedere un frame dell'animazione di alzata, denominata \emph{Sit to Stand}, si può vedere anche il collider dell'agente che ritorna alla forma originale.\\
 	Il passaggio delle varie animazioni è stato gestito da script assegnando valore alle variabili booleane dell'animator.
 	\begin{lstlisting}[language={[Sharp]C}, 
 		caption={Metodo che permette agli agenti di prendere posto sull'autobus}, label={TakeBus}]
@@ -350,8 +368,8 @@
 		\caption{Questo è il grafo definitivo della simulazione.}
 		\label{fig:AreaGrafo}
 	\end{figure}
-	Nella figura \ref{fig:AreaGrafo} possiamo vedere diverse zone nel grafo: le zone verdi sono aree completamente calpestabili, quindi non modificate dal \emph{Graph Update Scene}; Le aree rosse sono aree calpestabili ma con penalità, per evitare che gli agenti scavalchino i sedili; le zone trasparenti con quadrati rossi sono zone non calpestabili. In più si può vedere il bus finale che è stato utilizzato nella simulazione definitiva di Obuse a 12 posti, in seguito se ne parlerà più approfonditamente.
-	In seguito si è passati all'integrare il local avoidance tramite \emph{Reciprocal Velocity Obstacles(RVO)} del tool A* Pathfinding Project, il quale ha permesse di gestire facilmente il distanziamento tra gli agenti, impedendo compenetrazioni e varie problematiche che potevano accadere implementando tale funzione. Un problema però è presente, alla salita degli agenti sul bus può capitare che distanziandosi sulla rampa, gli agenti cadano da essa finendo col camminare al di sotto del bus. Questo è stato risolto riposizionando, una volta arrivati a destinazione, gli agenti sul posto assegnato.
+	Nella Figura \ref{fig:AreaGrafo} possiamo vedere diverse zone nel grafo: le zone verdi sono aree completamente calpestabili, quindi non modificate dal \emph{Graph Update Scene}; Le aree rosse sono aree calpestabili ma con penalità, per evitare che gli agenti scavalchino i sedili; le zone trasparenti con quadrati rossi sono zone non calpestabili. In più si può vedere il bus finale che è stato utilizzato nella simulazione definitiva di Obuse a 12 posti, in seguito se ne parlerà più approfonditamente.
+	In seguito si è passati all'integrare il local avoidance tramite \emph{Reciprocal Velocity Obstacles (RVO)} del tool A* Pathfinding Project, il quale ha permesse di gestire facilmente il distanziamento tra gli agenti, impedendo compenetrazioni e varie problematiche che potevano accadere implementando tale funzione. Un problema però è presente, alla salita degli agenti sul bus può capitare che distanziandosi sulla rampa, gli agenti cadano da essa finendo col camminare al di sotto del bus. Questo è stato risolto riposizionando, una volta arrivati a destinazione, gli agenti sul posto assegnato.
 	
 	\begin{lstlisting}[language={[Sharp]C}, caption={Metodo per la seduta degli agenti}, label={SitDown}]
 		private void SitDown()
@@ -385,7 +403,7 @@
 		\caption{Questo è un tratto del percorso.}
 		\label{fig:BezierPath}
 	\end{figure}
-	Nella figura \ref{fig:BezierPath} si vede, in verde, un tratto del percorso disegnato con Beziér Path Creator sul quale il bus si muove.\\
+	Nella Figura \ref{fig:BezierPath} si vede, in verde, un tratto del percorso disegnato con Beziér Path Creator sul quale il bus si muove.\\
 
 	\section{La fermata}
 	Giunti alla situazione nella quale gli agenti salgono correttamente sul bus, prendono posto e si siedono, il bus si muove seguendo il percorso disegnato ci si è spostati sulla creazione di fermate per gli agenti, in modo tale da simulare le varie tratte dell'autobus, iniziando con una semplice struttura e una linea che funge da \emph{trigger} per far si che l'autobus si fermi.\\
@@ -395,7 +413,7 @@
 		\caption{Fermata del bus}
 		\label{fig:BusStopNoSA}
 	\end{figure}
-	Nella figura \ref{fig:BusStopNoSA} è possibile vedere una semplice struttura per dare l'idea di fermata, sulla sinistra, mentre sulla destra abbiamo la linea che fa da \emph{trigger} per l'autobus.\\
+	Nella Figura \ref{fig:BusStopNoSA} è possibile vedere una semplice struttura per dare l'idea di fermata, sulla sinistra, mentre sulla destra abbiamo la linea che fa da \emph{trigger} per l'autobus.\\
 	
 	 È stato poi considerato utile aggiungere un GameObject denominato \emph{Spawning Area}, all'interno di ciascuna fermata con il quale era possibile impostare la grandezza dell'area dove venivano generati gli agenti, deciderne il numero e decidere la velocità di ripartenza del bus. Questa scelta si è rivelata molto utile per passare dalla scena di prova a quella effettiva della simulazione.
 	 \begin{figure}[H]
@@ -404,7 +422,7 @@
 	 	\caption{Fermata del bus con area di spawning}
 	 	\label{fig:BusStopSA}
 	 \end{figure}
- 	L'area rossa nella figura \ref{fig:BusStopSA} è l'area di spawning, nella quale vengono generati gli agenti, di seguito nella figura \ref{fig:SAInspector} verrà mostrato nel dettaglio l'inspector dell'area.
+ 	L'area rossa nella Figura \ref{fig:BusStopSA} è l'area di spawning, nella quale vengono generati gli agenti, di seguito nella Figura \ref{fig:SAInspector} verrà mostrato nel dettaglio l'inspector dell'area.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/SAInspector.png"}
@@ -413,14 +431,14 @@
  	\end{figure}
  	Tramite la variabile \emph{Size} è possibile modificare l'area nella quale verranno generati gli agenti; \emph{Average Pendulars} permette di impostare il numero medio di agenti da generare alla fermata, il perché del numero medio di agenti invece di un numero fisso verrà spiegato in seguito; \emph{Restart Speed} permette di decidere la velocità di ripartenza del bus in modo tale da poter far rispettare degli orari reali.  
  	\section{Il virus}
- 	La diffusione del virus è stata gestita tramite il particle system shuriken di Unity, il quale permette di gestire facilmente le collisioni con le particelle. Si è iniziati a realizzare un particle system che desse l'effetto dello spostamento d'aria, quindi un effetto di fumo che uscisse dalla bocca come è possibile vedere nella figura \ref{fig:SmokeEffect}.
+ 	La diffusione del virus è stata gestita tramite il particle system shuriken di Unity, il quale permette di gestire facilmente le collisioni con le particelle. Si è iniziati a realizzare un particle system che desse l'effetto dello spostamento d'aria, quindi un effetto di fumo che uscisse dalla bocca come è possibile vedere nella Figura \ref{fig:SmokeEffect}.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=0.5\linewidth]{"Immagini/SmokeEffect.png"}
  		\caption{Effetto di fumo che parte dalla bocca dell'agente}
  		\label{fig:SmokeEffect}
  	\end{figure}
- 	Quindi si è passati alla realizzazione di un particle system che avesse un collider sulle particelle, un semplice effetto con delle sfere, inizialmente formate da un modello di CoVid-19 visibile nella figura \ref{fig:Covid}
+ 	Quindi si è passati alla realizzazione di un particle system che avesse un collider sulle particelle, un semplice effetto con delle sfere, inizialmente formate da un modello di CoVid-19 visibile nella Figura \ref{fig:Covid}
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=0.5\linewidth]{"Immagini/Covid.png"}
@@ -434,7 +452,7 @@
  		\caption{Effetto che simula le particelle infette di covid in un colpo di tosse}
  		\label{fig:CovidEffect}
  	\end{figure}
- 	Nella figura \ref{fig:CovidEffect} si vede l'effetto delle particelle che simulano quelle infette da covid, ogni particella ha un collider che permette di catturare le collisioni con il collider dell'agente sano che è possible vedere nella figura \ref{fig:ColliderCovid}
+ 	Nella Figura \ref{fig:CovidEffect} si vede l'effetto delle particelle che simulano quelle infette da covid, ogni particella ha un collider che permette di catturare le collisioni con il collider dell'agente sano che è possibile vedere nella Figura \ref{fig:ColliderCovid}
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=0.5\linewidth]{"Immagini/ColliderCovid.png"}
@@ -450,16 +468,16 @@
  			\caption{L'inspector del GameControl}
  			\label{fig:GameControl}
  		\end{figure}
- 		Nella figura \ref{fig:GameControl} è possibile vedere i parametri dell'oggetto GameControl citati precedentemente.
+ 		Nella Figura \ref{fig:GameControl} è possibile vedere i parametri dell'oggetto GameControl citati precedentemente.
  	\section{La tratta di Obuse}
- 	Con la simulazione funzionante si è poi passati alla ricerca di documenti su tratte di autobus reali, trovando un articolo riguardo al volume dei passeggeri sulla tratta di bus della cittadina giapponese Obuse \cite{Obuse}, il volume è stato calcolato tramite una stima basata sui Wi-Fi scanner presenti sulla tratta.
+ 	Con la simulazione funzionante si è poi passati alla ricerca di documenti su tratte di autobus reali, trovando un articolo riguardo al volume dei passeggeri sulla tratta di bus della cittadina giapponese Obuse  \cite{Obuse}, il volume è stato calcolato tramite una stima basata sui Wi-Fi scanner presenti sulla tratta.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/MappaObuse.jpg"}
  		\caption{Mappa della tratta di Obuse}
  		\label{fig:Map}
  	\end{figure}
- 	Nella figura \ref{fig:Map} si vede, in rosso, la tratta del bus, mentre nella figura \ref{fig:Pendolari} si vede la media dei pendolari su ogni fermata della tratta.
+ 	Nella Figura \ref{fig:Map} si vede, in rosso, la tratta del bus, mentre nella Figura \ref{fig:Pendolari} si vede la media dei pendolari su ogni fermata della tratta.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/MediaPendolari.png"}
@@ -490,8 +508,8 @@
  			}
  		}
  	\end{lstlisting}
- 	Nel codice \ref{SpawningAtStops}, alla riga 15, è presente il codice che indica il range di $\pm30\%$ della media.\\
- 	Si è poi passati alla realizzazione in scala della strada su Unity utilizzando EasyRoad3D come è si vede nella figura \ref{fig:ObuseStreet}, in verde è possibile anche vedere il percorso del bus realizzato con Bezièr Path Creator. 
+ 	Nel Script \ref{SpawningAtStops}, alla riga 15, è presente il codice che indica il range di $\pm30\%$ della media.\\
+ 	Si è poi passati alla realizzazione in scala della strada su Unity utilizzando EasyRoad3D come è si vede nella Figura \ref{fig:ObuseStreet}, in verde è possibile anche vedere il percorso del bus realizzato con Bezièr Path Creator. 
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/ObuseStreet.png"}
@@ -507,7 +525,17 @@
  		\caption{Interfaccia della simulazione in pausa}
  		\label{fig:InterfacciaPausa}
  	\end{figure}
- 	Nella figura \ref{fig:InterfacciaPausa} sono presenti diversi slider, sulla sinistra per la gestione dei parametri di contagio, sulla destra sono presenti due menu dropdown e uno slider per scegliere il numero di agenti da generare su una fermata selezionata dai menu, infine un pulsante al centro per far partire la simulazione.
+ 	Nella Figura \ref{fig:InterfacciaPausa} sono presenti diversi slider, sulla sinistra per la gestione dei parametri di contagio, sulla destra sono presenti due menù tendina e uno slider per scegliere il numero di agenti da generare su una fermata selezionata dai menù, infine un pulsante al centro per far partire la simulazione.
+ 	Ora parliamo più nel dettaglio degli elementi presenti nell'interfaccia:\\
+ 	\begin{itemize}
+ 		\item Probabilità di infezione, permette di modificare la probabilità che ha una particella di infettare un agente quando vi entra in contatto.
+ 		\item Percentuale Contagiosi, permette di modificare percentuale di contagiosi che vengono generati ad ogni tratta.
+ 		\item Ampiezza di emissione, permette di modificare l'ampiezza del cono di emissione delle particelle.
+ 		\item Percorso minimo, permette di modificare la tratta massima, in numero di fermate, che un agente percorrerà sull'autobus.
+ 		\item Angolo di emissione, permette di modificare l'intervallo dell'angolo del cono di emissione.
+ 		\item Numero Agenti, permette di scegliere il numero di agenti nella fermata scelta dal menù a tendina.
+ 		\item Il tasto \emph{PLAY} serve ad avviare la simulazione.
+ 	\end{itemize}
  
  	\begin{figure}[H]
  		\centering
@@ -515,9 +543,9 @@
  		\caption{Interfaccia della simulazione in play}
  		\label{fig:InterfacciaPlay}
  	\end{figure}
- 	Nella figura \ref{fig:InterfacciaPlay} sono presenti, sulla sinistra i bottoni per la gestione del tempo, in alto a destra un orologio che scandisce il tempo reale della simulazione e in basso a destra sono presenti i dati del contagio della simulazione.
+ 	Nella Figura \ref{fig:InterfacciaPlay} sono presenti, sulla sinistra i bottoni per la gestione del tempo, in alto a destra un orologio che scandisce il tempo reale della simulazione e in basso a destra sono presenti i dati del contagio della simulazione.
  	\section{La telecamera}
- 	La telecamera è stata gestita completamente con il tool Cinemachine, come è possibile vedere nella figura \ref{fig:Cinemachine}, il quale ha permesso di creare una telecamera isometrica che seguisse il bus per l'intera simulazione senza scrivere codice.
+ 	La telecamera è stata gestita completamente con il tool Cinemachine, come è possibile vedere nella Figura \ref{fig:Cinemachine}, il quale ha permesso di creare una telecamera isometrica che seguisse il bus per l'intera simulazione senza scrivere codice.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=0.7\linewidth]{"Immagini/Cinemachine.png"}
@@ -525,30 +553,30 @@
  		\label{fig:Cinemachine}
  	\end{figure}
  	\section{L'ottimizzazione}
- 	Il lavoro di ottimizzazione è iniziato nel momento in cui la simulazione aveva cali drastici di framerate, anche su diverse macchine. Tramite il \emph{Profiler}, strumento presente in unity in grado di mostrare l'utilizzo di risorse della macchina e quale processo in particolare sta sfruttando le risorse, si è riusciti a comprendere quali erano i principali problemi. Come è possibile vedere dalla figura \ref{fig:ProfilerFPSBassi} ci sono dei cali drastici a 15 FPS che causano non pochi problemi.
+ 	Il lavoro di ottimizzazione è iniziato nel momento in cui la simulazione aveva cali drastici di framerate, anche su diverse macchine. Tramite il \emph{Profiler}, strumento presente in unity in grado di mostrare l'utilizzo di risorse della macchina e quale processo in particolare sta sfruttando le risorse, si è riusciti a comprendere quali erano i principali problemi. Come è possibile vedere dalla Figura \ref{fig:ProfilerFPSBassi} ci sono dei cali drastici a 15 FPS che causano non pochi problemi.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/ProfilerFPSBassi.png"}
  		\caption{Questo è il profiler della simulazione prima dei cambiamenti}
  		\label{fig:ProfilerFPSBassi}
  	\end{figure}
- 	Con il \emph{profiler} alla mano e la simulazione in \emph{play}, si è riusciti a comprendere in quali fasi avesse questi cali drastici. Come primo problema la telecamera era in una pessima angolazione, in alcune zone della tratta la posizione della telecamera le permetteva di inquadrare l'intera mappa, come è possibile vedere dalla figura \ref{fig:CameraBrutta}, quindi renderizzando l'intero mondo della simulazione sfruttava molte risorse. Si è quindi ridotto la \emph{distanza di render} della telecamera e si è passati ad un'inquadratura a \emph{volo di uccello} facendo sì che non si veda la strada che viene generata.
+ 	Con il \emph{profiler} alla mano e la simulazione in \emph{play}, si è riusciti a comprendere in quali fasi avesse questi cali drastici. Come primo problema la telecamera era in una pessima angolazione, in alcune zone della tratta la posizione della telecamera le permetteva di inquadrare l'intera mappa, come è possibile vedere dalla Figura \ref{fig:CameraBrutta}, quindi renderizzando l'intero mondo della simulazione sfruttava molte risorse. Si è quindi ridotto la \emph{distanza di render} della telecamera e si è passati ad un'inquadratura a \emph{volo di uccello} facendo sì che non si veda la strada che viene generata.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/CameraBrutta.png"}
  		\caption{Questa è un frame nel quale la simulazione perdeva molti frame per secondo}
  		\label{fig:CameraBrutta}
  	\end{figure}
- 	Una volta risolto il problema della telecamera, si è notato che i cali erano, in frequenza minore, ma comunque presenti. Tramite il \emph{profiler} ci si è accorti che il processo che sfruttava più risorse in certi momenti era il \emph{particle system}, infatti i frame per secondo si abbassavano quando venivano emesse le particelle. Si è quindi passati a ridurre il numero di particelle emesse, da 10 ad 8, e si è cambiato il modello con il quale venivano generate, non più il modello nella figura \ref{fig:Covid} ma delle semplici sfere.
+ 	Una volta risolto il problema della telecamera, si è notato che i cali erano, in frequenza minore, ma comunque presenti. Tramite il \emph{profiler} ci si è accorti che il processo che sfruttava più risorse in certi momenti era il \emph{particle system}, infatti i frame per secondo si abbassavano quando venivano emesse le particelle. Si è quindi passati a ridurre il numero di particelle emesse, da 10 ad 8, e si è cambiato il modello con il quale venivano generate, non più il modello nella Figura \ref{fig:Covid} ma delle semplici sfere.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/ProfilerBuoniFPS.png"}
  		\caption{Questo è il profiler della simulazione a 5x}
  		\label{fig:ProfilerBuoniFPS}
  	\end{figure} 
- 	Ora la simulazione ha un'ottima media di frame per secondo, anche a 5x, come è possibile vedere nella figura \ref{fig:ProfilerBuoniFPS}.
+ 	Ora la simulazione ha un'ottima media di frame per secondo, anche a 5x, come è possibile vedere nella Figura \ref{fig:ProfilerBuoniFPS}.
  	\section{La raccolta dei dati}
- 	Ad ogni avvio della simulazione viene generato un file contenente le informazioni riguardo il contagio, come è possibile vedere nella figura \ref{fig:csv}. Ad ogni tratta viene generata una riga contenente il numero di agenti totali, quelli contagiosi, quelli infetti e quelli sani.
+ 	Ad ogni avvio della simulazione viene generato un file contenente le informazioni riguardo il contagio, come è possibile vedere nella Figura \ref{fig:csv}. Ad ogni tratta viene generata una riga contenente il numero di agenti totali, quelli contagiosi, quelli infetti e quelli sani.
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\linewidth]{"Immagini/csv.png"}
