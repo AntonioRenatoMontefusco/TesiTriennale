@@ -16,8 +16,8 @@
 \Dipartimento {Informatica}
 \Corso [Laurea]{Informatica}
 \Annoaccademico {2020-2021}
-\Titolo {\sf Simulazione 3D ad Agenti Riguardo Contagi su Mezzo di Trasporto Pubblico}
-\Sottotitolo{\sf }
+\Titolo {\sf Simulazione ad Agenti nei Trasporti: }
+\Sottotitolo{\sf Modellazione dei Comportamenti degli Utenti e Simulazione dei Contagi}
 \Logo [4cm]{immagini/logounisa}
 \NCandidato{Candidato}
 \Candidato [0512105806]{Antonio Renato Montefusco}
@@ -28,7 +28,7 @@
 \begin{document}
 	
 	\preparefrontpagestandard
-	\Large{Abstract\\ Data la pandemia da Covid-19, si sono dovuti effettuare vari studi e ricerche sull'argomento in ogni ambito. Lo scopo di questa tesi è la realizzazione di una simulazione basata su agenti che utilizzano un mezzo di trasporto pubblico in periodo di pandemia. Tramite questa simulazione è possibile ottenere dati statistici sui contagi che avvengono in una giornata sulla tratta del mezzo di trasporto. La simulazione è stata realizzata completamente in Unity 3D. Gli agenti utilizzati per la simulazione sono dei modelli di persona e sono animati per tutte le loro azioni, che siano la camminata, il sedersi sul bus o lo scendere da quest'ultimo. Per la simulazione sono stati utilizzati dati reali ottenuti da un articolo scientifico riguardante i trasporti nella città giapponese di Obuse pubblicato da Elsevier LTD nel 2020, il quale studio ha riportato il numero di passeggeri medi durante la tratta di autobus tracciati tramite Wi-Fi scanner.
+	\Large{Abstract\\ Data la pandemia da Covid-19, si sono dovuti effettuare vari studi e ricerche sull'argomento in ogni ambito. Lo scopo di questa tesi è la realizzazione di una simulazione basata su agenti che utilizzano un mezzo di trasporto pubblico in periodo di pandemia. Tramite questa simulazione è possibile ottenere dati statistici sui contagi che avvengono in una giornata sulla tratta del mezzo di trasporto. La simulazione è stata realizzata completamente in Unity 3D. Per la simulazione sono stati utilizzati dati reali ottenuti da un articolo scientifico riguardante i trasporti nella città giapponese di Obuse pubblicato da Elsevier LTD nel 2020, il quale studio ha riportato il numero di passeggeri medi durante la tratta di autobus tracciati tramite Wi-Fi scanner. Gli agenti utilizzati per la simulazione sono dei modelli poligonali di persona e sono animati per tutte le loro azioni le quali rispettano un diagramma a stati che indica il loro comportamento, il passaggio da uno stato all'altro è definito da dei trigger, come ad esempio, il bus che si ferma fa andare l'agente nello stato di camminata. I contagi sono stati gestiti tramite il Particle System Shuriken, il quale permette di catturare le collisioni delle particelle, quindi sono stati definiti tre tipologie di agenti, \textbf{Sano, Infetto} e \textbf{Contagioso}. L'agente Contagioso emette delle particelle di \textsc{CoViD-19}, le quali entrando in contatto con un agente \textbf{Sano} possono infettarlo. Inoltre la simulazione permette di fare statistiche sui dati scrivendo i risultati dell'esecuzione su file di formato csv, i quali sono di facile gestione.
 }
 	
 \end{document}

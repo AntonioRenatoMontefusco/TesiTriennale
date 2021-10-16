@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{pdfpages}
 \newcommand\myworries[1]{\textcolor{red}{#1}}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -34,6 +35,9 @@
 \lstset{style=mystyle}
 
 \begin{document}
+	\includepdf[pages={1}]{frontespizio.pdf}
+	
+	\tableofcontents
 	\chapter*{Introduzione}	
 		Il CoronaVirus-19, abbreviato \textsc{CoViD-19}, è un virus trovato per la prima volta nella città di Wuhan, in Cina. Esso è conosciuto anche come \emph{Malattia respiratoria acuta}, abbreviato in \textsc{SARS-CoV-2}, dato che è un virus che come principale metodo di trasmissione utilizza le vie aeree, ha avuto vita facile nel diffondersi velocemente, in effetti tutti respiriamo. In breve tempo si è passati dall'isolamento della Cina al doverlo definire \textbf{pandemia} e quindi passare ad un isolamento globale.
 		Per la sua facilità di diffusione e per la sua pericolosità per alcuni soggetti più deboli, è stato necessario modificare lo stile di vita a cui si era abituati, iniziando con i lockdown, dovendo passare alla didattica a distanza, abbiamo visto l'economia rallentare, nei casi peggiori crollare. Abbiamo perso la quasi totalità del contatto umano per via  della chiusura temporanea di aziende e luoghi definiti "non di prima necessità".
